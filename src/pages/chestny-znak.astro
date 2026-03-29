@@ -3,19 +3,19 @@ import Base from '../layouts/Base.astro';
 
 const faqItems = [
   {
-    question: "Czym jest Chestny Znak (Честный знак)?",
-    answer: "Chestny Znak to rosyjski krajowy system obowiązkowego oznakowania produktów, uruchomiony w celu walki z podróbkami i szarą strefą. Każda jednostka produktu otrzymuje unikalny kod Data Matrix, który jest rejestrowany w centralnej bazie danych CRPT. System został wprowadzony na mocy ustawy podpisanej w grudniu 2017 r. i obejmuje coraz więcej kategorii produktów."
+    question: "Czym jest kod Data Matrix?",
+    answer: "Data Matrix to dwuwymiarowy kod kreskowy, który może zawierać dużo informacji na małej powierzchni. Każda jednostka produktu otrzymuje unikalny kod zawierający m.in. numer GTIN, numer seryjny i klucz weryfikacyjny. Kody te są wykorzystywane w systemach oznakowania produktów na wielu rynkach."
   },
   {
-    question: "Jakie produkty wymagają oznakowania Chestny Znak?",
-    answer: "Obowiązkowe oznakowanie obejmuje m.in.: wyroby tytoniowe, obuwie, perfumy, opony, leki, nabiał, wodę, piwo, odzież. Od 2025-2026 system rozszerza się o wyroby cukiernicze, herbatę, kawę, elektronikę i materiały budowlane. Lista kategorii stale rośnie."
+    question: "Jakie produkty wymagają kodów Data Matrix?",
+    answer: "Kody Data Matrix są wymagane w wielu branżach, m.in.: wyroby tytoniowe, obuwie, perfumy, opony, leki, nabiał, woda, piwo, odzież, wyroby cukiernicze, herbata, kawa i elektronika. Lista kategorii stale rośnie."
   },
   {
-    question: "Dlaczego druk oznaczeń Chestny Znak jest trudny?",
+    question: "Dlaczego druk kodów Data Matrix jest trudny?",
     answer: "Każda sztuka produktu musi mieć swój unikalny kod Data Matrix — nie ma dwóch takich samych etykiet. Np. opakowanie zbiorcze 30 batonów wymaga 30 indywidualnych naklejek + 1 kod agregacji na kartonie. To druk danych zmiennych (variable data printing), który wymaga specjalistycznego sprzętu i doświadczenia."
   },
   {
-    question: "Co zawiera kod Data Matrix w systemie Chestny Znak?",
+    question: "Co zawiera kod Data Matrix?",
     answer: "Kod Data Matrix zawiera co najmniej cztery grupy informacji: GTIN (Global Trade Item Number), numer seryjny produktu, klucz weryfikacyjny oraz kod kryptograficzny. Razem tworzą one unikalny identyfikator, który pozwala śledzić każdą jednostkę produktu w łańcuchu dostaw."
   },
   {
@@ -23,8 +23,8 @@ const faqItems = [
     answer: "Proces jest prosty:\n1) Przesyłasz nam plik z unikalnymi kodami Data Matrix.\n2) Przygotowujemy projekt etykiet zgodny z wymaganiami systemu.\n3) Drukujemy naklejki z indywidualnymi kodami w wymaganej kolejności.\n4) Dostarczamy gotowe etykiety — każda z unikalnym kodem, gotowa do naklejenia na produkt."
   },
   {
-    question: "Ile kosztuje druk oznaczeń Chestny Znak?",
-    answer: "Cena zależy od nakładu, rozmiaru etykiet i materiału. Skontaktuj się z nami telefonicznie (604 286 423) lub przez formularz kontaktowy — przygotujemy indywidualną wycenę w ciągu 24 godzin."
+    question: "Ile kosztuje druk kodów Data Matrix?",
+    answer: "Cena zależy od nakładu, rozmiaru etykiet i materiału. Skontaktuj się z nami telefonicznie (604 286 423) lub mailowo — przygotujemy indywidualną wycenę w ciągu 24-48 godzin."
   }
 ];
 
@@ -43,8 +43,8 @@ const faqSchema = {
 ---
 
 <Base
-  title="Chestny Znak (Честный знак) — druk oznaczeń | Drukarnia WIPP Białystok"
-  description="Druk indywidualnych kodów Data Matrix dla systemu Chestny Znak. Specjalizujemy się w druku unikalnych etykiet dla każdej sztuki produktu. Drukarnia WIPP Białystok."
+  title="Druk kodów Data Matrix — unikalne etykiety | Drukarnia WIPP Białystok"
+  description="Druk indywidualnych kodów Data Matrix na naklejkach. Specjalizujemy się w druku unikalnych etykiet dla każdej sztuki produktu. Drukarnia WIPP Białystok."
   schema={faqSchema}
 >
 
@@ -52,47 +52,24 @@ const faqSchema = {
   <section class="pt-24 pb-12 md:pt-32 md:pb-16 bg-gradient-to-br from-blue-800 to-blue-950 text-white">
     <div class="max-w-4xl mx-auto px-4 text-center">
       <h1 class="text-3xl md:text-5xl font-extrabold leading-tight mb-6">
-        Chestny Znak — Честный знак<br />
-        <span class="text-blue-300">Druk oznaczeń dla rynku rosyjskiego</span>
+        Druk kodów Data Matrix<br />
+        <span class="text-blue-300">Unikalne etykiety dla każdego produktu</span>
       </h1>
       <p class="text-lg text-blue-100 max-w-2xl mx-auto">
-        Specjalizujemy się w druku unikalnych kodów Data Matrix wymaganych przez rosyjski system obowiązkowego oznakowania produktów.
+        Specjalizujemy się w druku unikalnych kodów Data Matrix na naklejkach — każda sztuka produktu otrzymuje indywidualny kod.
       </p>
-    </div>
-  </section>
-
-  <!-- What is Chestny Znak -->
-  <section class="py-16 md:py-20">
-    <div class="max-w-4xl mx-auto px-4">
-      <h2 class="text-2xl md:text-3xl font-bold mb-6">Czym jest system Chestny Znak?</h2>
-      <div class="prose prose-lg max-w-none text-gray-700 space-y-4">
-        <p>
-          <strong>Chestny Znak (Честный знак)</strong> to rosyjski krajowy system cyfrowego oznakowania i śledzenia produktów.
-          Wprowadzony przez rząd Federacji Rosyjskiej, ma na celu wyeliminowanie podróbek, przemytu i produktów niespełniających
-          norm z obrotu handlowego.
-        </p>
-        <p>
-          System opiera się na <strong>kodach Data Matrix</strong> — każda jednostka produktu otrzymuje swój własny, unikalny kod
-          zawierający numer GTIN, numer seryjny, klucz weryfikacyjny i kod kryptograficzny. Kody są rejestrowane w centralnej bazie
-          danych operatora CRPT (Centrum Rozwoju Zaawansowanych Technologii).
-        </p>
-        <p>
-          Obowiązek oznakowania dotyczy coraz większej liczby kategorii produktów: od wyrobów tytoniowych i obuwia, przez leki,
-          nabiał, wodę i piwo, aż po <strong>wyroby cukiernicze, herbatę, kawę i elektronikę</strong> (2025-2026).
-        </p>
-      </div>
     </div>
   </section>
 
   <!-- Why it's hard -->
   <section class="py-16 md:py-20 bg-gray-50">
     <div class="max-w-4xl mx-auto px-4">
-      <h2 class="text-2xl md:text-3xl font-bold mb-6">Dlaczego druk Chestny Znak wymaga specjalisty?</h2>
+      <h2 class="text-2xl md:text-3xl font-bold mb-6">Dlaczego druk kodów Data Matrix wymaga specjalisty?</h2>
       <div class="space-y-6">
         <div class="bg-white rounded-xl p-6 shadow-sm">
           <h3 class="text-lg font-bold text-blue-800 mb-2">Każda etykieta jest unikalna</h3>
           <p class="text-gray-600">
-            W odróżnieniu od zwykłego druku, gdzie wszystkie naklejki są identyczne, w systemie Chestny Znak
+            W odróżnieniu od zwykłego druku, gdzie wszystkie naklejki są identyczne,
             <strong>każda pojedyncza sztuka produktu</strong> musi mieć swój własny, niepowtarzalny kod Data Matrix.
             Przykład: opakowanie zbiorcze 30 batonów wymaga wydrukowania 30 różnych naklejek + 1 kodu agregacji na kartonie.
           </p>
@@ -126,8 +103,8 @@ const faqSchema = {
             <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
           </div>
           <div>
-            <h3 class="font-bold mb-1">Druk dostarczonych kodów Data Matrix</h3>
-            <p class="text-gray-600 text-sm">Klient dostarcza nam pliki z unikalnymi kodami, a my drukujemy je na naklejkach w wymaganej kolejności i układzie.</p>
+            <h3 class="font-bold mb-1">Druk dostarczonych kodów</h3>
+            <p class="text-gray-600 text-sm">Klient dostarcza nam pliki z unikalnymi kodami Data Matrix, a my drukujemy je na naklejkach w wymaganej kolejności i układzie.</p>
           </div>
         </div>
         <div class="flex gap-4">
@@ -161,32 +138,10 @@ const faqSchema = {
     </div>
   </section>
 
-  <!-- Expanding categories -->
-  <section class="py-16 md:py-20 bg-blue-900 text-white">
-    <div class="max-w-4xl mx-auto px-4">
-      <h2 class="text-2xl md:text-3xl font-bold mb-6">System się rozszerza — nowe kategorie 2025-2026</h2>
-      <p class="text-blue-100 mb-8">
-        Rosyjski rząd systematycznie poszerza listę produktów objętych obowiązkowym oznakowaniem.
-        Jeśli eksportujesz do Rosji, prawdopodobnie potrzebujesz oznaczeń Chestny Znak.
-      </p>
-      <div class="grid sm:grid-cols-2 md:grid-cols-3 gap-4">
-        {[
-          'Wyroby tytoniowe', 'Obuwie', 'Perfumy i kosmetyki', 'Opony',
-          'Leki i farmaceutyki', 'Nabiał', 'Woda butelkowana', 'Piwo',
-          'Odzież', 'Wyroby cukiernicze', 'Herbata i kawa', 'Elektronika',
-        ].map(category => (
-          <div class="bg-white/10 rounded-lg px-4 py-3 text-sm font-medium">
-            {category}
-          </div>
-        ))}
-      </div>
-    </div>
-  </section>
-
   <!-- FAQ -->
   <section class="py-16 md:py-20">
     <div class="max-w-4xl mx-auto px-4">
-      <h2 class="text-2xl md:text-3xl font-bold mb-8 text-center">Najczęstsze pytania o Chestny Znak</h2>
+      <h2 class="text-2xl md:text-3xl font-bold mb-8 text-center">Najczęstsze pytania o kody Data Matrix</h2>
       <div class="space-y-4">
         {faqItems.map(item => (
           <details class="group bg-gray-50 rounded-xl">
@@ -206,9 +161,9 @@ const faqSchema = {
   <!-- CTA -->
   <section class="py-16 md:py-20 bg-gray-50">
     <div class="max-w-3xl mx-auto px-4 text-center">
-      <h2 class="text-2xl md:text-3xl font-bold mb-4">Potrzebujesz druku oznaczeń Chestny Znak?</h2>
+      <h2 class="text-2xl md:text-3xl font-bold mb-4">Potrzebujesz druku kodów Data Matrix?</h2>
       <p class="text-gray-600 mb-8">
-        Skontaktuj się z nami — wycenimy Twoje zamówienie i doradzimy w kwestii wymagań systemu.
+        Skontaktuj się z nami — wycenimy Twoje zamówienie i doradzimy w kwestii wymagań.
       </p>
       <div class="flex flex-col sm:flex-row gap-4 justify-center">
         <a href="/kontakt/" class="bg-blue-700 text-white font-bold px-8 py-3 rounded-lg hover:bg-blue-800 transition-colors">

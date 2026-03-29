@@ -7,7 +7,7 @@ const schema = {
   "@id": "https://wipp-drukarnia.pl/#business",
   "name": "Wipp Piotr Prokopiuk — Drukarnia",
   "image": "https://wipp-drukarnia.pl/logo.png",
-  "description": "Drukarnia cyfrowa w Białymstoku. Specjalizacja: naklejki, etykiety samoprzylepne oraz oznakowanie produktów Chestny Znak (Честный знак) dla rynku rosyjskiego.",
+  "description": "Drukarnia cyfrowa w Białymstoku. Specjalizacja: naklejki, etykiety samoprzylepne oraz druk kodów Data Matrix.",
   "address": {
     "@type": "PostalAddress",
     "streetAddress": "ul. Kombatantów 7A",
@@ -26,8 +26,8 @@ const schema = {
   "openingHoursSpecification": {
     "@type": "OpeningHoursSpecification",
     "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
-    "opens": "08:00",
-    "closes": "16:00"
+    "opens": "07:00",
+    "closes": "15:00"
   },
   "priceRange": "$$",
   "areaServed": [
@@ -42,8 +42,8 @@ const schema = {
         "@type": "Offer",
         "itemOffered": {
           "@type": "Service",
-          "name": "Chestny Znak — druk oznaczeń",
-          "description": "Druk indywidualnych kodów Data Matrix dla systemu Chestny Znak (Честный знак). Każdy produkt otrzymuje unikalny kod identyfikacyjny."
+          "name": "Druk kodów Data Matrix",
+          "description": "Druk indywidualnych kodów Data Matrix na naklejkach. Każdy produkt otrzymuje unikalny kod identyfikacyjny."
         }
       },
       {
@@ -68,8 +68,8 @@ const schema = {
 ---
 
 <Base
-  title="Drukarnia WIPP Białystok — Chestny Znak, naklejki, druk cyfrowy"
-  description="Drukarnia cyfrowa w Białymstoku. Specjalizujemy się w druku oznaczeń Chestny Znak (Честный знак), naklejek i etykiet samoprzylepnych. Szybka realizacja, konkurencyjne ceny."
+  title="Drukarnia WIPP Białystok — kody Data Matrix, naklejki, druk cyfrowy"
+  description="Drukarnia cyfrowa w Białymstoku. Specjalizujemy się w druku kodów Data Matrix, naklejek i etykiet samoprzylepnych. Szybka realizacja, konkurencyjne ceny."
   schema={schema}
 >
 
@@ -78,10 +78,10 @@ const schema = {
     <div class="max-w-6xl mx-auto px-4 text-center">
       <h1 class="text-3xl md:text-5xl font-extrabold leading-tight mb-6">
         Drukarnia cyfrowa w Białymstoku<br />
-        <span class="text-blue-300">Specjaliści od Chestny Znak</span>
+        <span class="text-blue-300">Specjaliści od kodów Data Matrix</span>
       </h1>
       <p class="text-lg md:text-xl text-blue-100 max-w-3xl mx-auto mb-8">
-        Drukujemy dostarczone kody Data Matrix dla systemu <strong>Честный знак</strong> na naklejkach.
+        Drukujemy dostarczone kody Data Matrix na naklejkach.
         Każdy produkt — indywidualna etykieta, we właściwej kolejności. Szybko, precyzyjnie, na czas.
       </p>
       <div class="flex flex-col sm:flex-row gap-4 justify-center">
@@ -101,12 +101,12 @@ const schema = {
       <h2 class="text-2xl md:text-4xl font-bold text-center mb-12">Nasze usługi</h2>
       <div class="grid md:grid-cols-3 gap-8">
 
-        <!-- Chestny Znak -->
+        <!-- Kody Data Matrix -->
         <a href="/chestny-znak/" class="group bg-white rounded-xl shadow-md hover:shadow-lg transition-shadow p-8 text-center">
           <div class="w-16 h-16 bg-blue-100 text-blue-700 rounded-full flex items-center justify-center mx-auto mb-4">
             <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v1m6 11h2m-6 0h-2v4m0-11v3m0 0h.01M12 12h4.01M16 20h4M4 12h4m12 0h.01M5 8h2a1 1 0 001-1V5a1 1 0 00-1-1H5a1 1 0 00-1 1v2a1 1 0 001 1zm12 0h2a1 1 0 001-1V5a1 1 0 00-1-1h-2a1 1 0 00-1 1v2a1 1 0 001 1zM5 20h2a1 1 0 001-1v-2a1 1 0 00-1-1H5a1 1 0 00-1 1v2a1 1 0 001 1z" /></svg>
           </div>
-          <h3 class="text-xl font-bold mb-2 group-hover:text-blue-700 transition-colors">Chestny Znak</h3>
+          <h3 class="text-xl font-bold mb-2 group-hover:text-blue-700 transition-colors">Kody Data Matrix</h3>
           <p class="text-gray-600 text-sm">
             Profesjonalny druk dostarczonych kodów Data Matrix na naklejkach — w wymaganej kolejności, na czas.
           </p>
@@ -148,11 +148,11 @@ const schema = {
           <p class="text-blue-100">Lat na rynku poligraficznym</p>
         </div>
         <div>
-          <div class="text-4xl font-extrabold text-blue-300 mb-2">1000+</div>
-          <p class="text-blue-100">Zadowolonych klientów</p>
+          <div class="text-4xl font-extrabold text-blue-300 mb-2">10000+</div>
+          <p class="text-blue-100">Zrealizowanych zamówień</p>
         </div>
         <div>
-          <div class="text-4xl font-extrabold text-blue-300 mb-2">24h</div>
+          <div class="text-4xl font-extrabold text-blue-300 mb-2">24-48h</div>
           <p class="text-blue-100">Realizacja ekspresowa</p>
         </div>
         <div>
@@ -166,7 +166,7 @@ const schema = {
   <!-- CTA -->
   <section class="py-16 md:py-20 bg-gray-50">
     <div class="max-w-3xl mx-auto px-4 text-center">
-      <h2 class="text-2xl md:text-3xl font-bold mb-4">Potrzebujesz oznaczeń Chestny Znak?</h2>
+      <h2 class="text-2xl md:text-3xl font-bold mb-4">Potrzebujesz druku kodów Data Matrix?</h2>
       <p class="text-gray-600 mb-8 text-lg">
         Skontaktuj się z nami — przygotujemy wycenę i zrealizujemy zamówienie szybko i terminowo.
       </p>
