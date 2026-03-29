@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://wipp-drukarnia.pl/sitemap-index.xml

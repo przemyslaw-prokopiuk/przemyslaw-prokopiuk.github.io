@@ -1,0 +1,224 @@
+---
+import Base from '../layouts/Base.astro';
+
+const faqItems = [
+  {
+    question: "Czym jest Chestny Znak (Честный знак)?",
+    answer: "Chestny Znak to rosyjski krajowy system obowiązkowego oznakowania produktów, uruchomiony w celu walki z podróbkami i szarą strefą. Każda jednostka produktu otrzymuje unikalny kod Data Matrix, który jest rejestrowany w centralnej bazie danych CRPT. System został wprowadzony na mocy ustawy podpisanej w grudniu 2017 r. i obejmuje coraz więcej kategorii produktów."
+  },
+  {
+    question: "Jakie produkty wymagają oznakowania Chestny Znak?",
+    answer: "Obowiązkowe oznakowanie obejmuje m.in.: wyroby tytoniowe, obuwie, perfumy, opony, leki, nabiał, wodę, piwo, odzież. Od 2025-2026 system rozszerza się o wyroby cukiernicze, herbatę, kawę, elektronikę i materiały budowlane. Lista kategorii stale rośnie."
+  },
+  {
+    question: "Dlaczego druk oznaczeń Chestny Znak jest trudny?",
+    answer: "Każda sztuka produktu musi mieć swój unikalny kod Data Matrix — nie ma dwóch takich samych etykiet. Np. opakowanie zbiorcze 30 batonów wymaga 30 indywidualnych naklejek + 1 kod agregacji na kartonie. To druk danych zmiennych (variable data printing), który wymaga specjalistycznego sprzętu i doświadczenia."
+  },
+  {
+    question: "Co zawiera kod Data Matrix w systemie Chestny Znak?",
+    answer: "Kod Data Matrix zawiera co najmniej cztery grupy informacji: GTIN (Global Trade Item Number), numer seryjny produktu, klucz weryfikacyjny oraz kod kryptograficzny. Razem tworzą one unikalny identyfikator, który pozwala śledzić każdą jednostkę produktu w łańcuchu dostaw."
+  },
+  {
+    question: "Jak wygląda proces zamówienia oznaczeń w drukarni WIPP?",
+    answer: "Proces jest prosty:\n1) Przesyłasz nam plik z unikalnymi kodami Data Matrix.\n2) Przygotowujemy projekt etykiet zgodny z wymaganiami systemu.\n3) Drukujemy naklejki z indywidualnymi kodami w wymaganej kolejności.\n4) Dostarczamy gotowe etykiety — każda z unikalnym kodem, gotowa do naklejenia na produkt."
+  },
+  {
+    question: "Ile kosztuje druk oznaczeń Chestny Znak?",
+    answer: "Cena zależy od nakładu, rozmiaru etykiet i materiału. Skontaktuj się z nami telefonicznie (604 286 423) lub przez formularz kontaktowy — przygotujemy indywidualną wycenę w ciągu 24 godzin."
+  }
+];
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": faqItems.map(item => ({
+    "@type": "Question",
+    "name": item.question,
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": item.answer
+    }
+  }))
+};
+---
+
+<Base
+  title="Chestny Znak (Честный знак) — druk oznaczeń | Drukarnia WIPP Białystok"
+  description="Druk indywidualnych kodów Data Matrix dla systemu Chestny Znak. Specjalizujemy się w druku unikalnych etykiet dla każdej sztuki produktu. Drukarnia WIPP Białystok."
+  schema={faqSchema}
+>
+
+  <!-- Hero -->
+  <section class="pt-24 pb-12 md:pt-32 md:pb-16 bg-gradient-to-br from-blue-800 to-blue-950 text-white">
+    <div class="max-w-4xl mx-auto px-4 text-center">
+      <h1 class="text-3xl md:text-5xl font-extrabold leading-tight mb-6">
+        Chestny Znak — Честный знак<br />
+        <span class="text-blue-300">Druk oznaczeń dla rynku rosyjskiego</span>
+      </h1>
+      <p class="text-lg text-blue-100 max-w-2xl mx-auto">
+        Specjalizujemy się w druku unikalnych kodów Data Matrix wymaganych przez rosyjski system obowiązkowego oznakowania produktów.
+      </p>
+    </div>
+  </section>
+
+  <!-- What is Chestny Znak -->
+  <section class="py-16 md:py-20">
+    <div class="max-w-4xl mx-auto px-4">
+      <h2 class="text-2xl md:text-3xl font-bold mb-6">Czym jest system Chestny Znak?</h2>
+      <div class="prose prose-lg max-w-none text-gray-700 space-y-4">
+        <p>
+          <strong>Chestny Znak (Честный знак)</strong> to rosyjski krajowy system cyfrowego oznakowania i śledzenia produktów.
+          Wprowadzony przez rząd Federacji Rosyjskiej, ma na celu wyeliminowanie podróbek, przemytu i produktów niespełniających
+          norm z obrotu handlowego.
+        </p>
+        <p>
+          System opiera się na <strong>kodach Data Matrix</strong> — każda jednostka produktu otrzymuje swój własny, unikalny kod
+          zawierający numer GTIN, numer seryjny, klucz weryfikacyjny i kod kryptograficzny. Kody są rejestrowane w centralnej bazie
+          danych operatora CRPT (Centrum Rozwoju Zaawansowanych Technologii).
+        </p>
+        <p>
+          Obowiązek oznakowania dotyczy coraz większej liczby kategorii produktów: od wyrobów tytoniowych i obuwia, przez leki,
+          nabiał, wodę i piwo, aż po <strong>wyroby cukiernicze, herbatę, kawę i elektronikę</strong> (2025-2026).
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Why it's hard -->
+  <section class="py-16 md:py-20 bg-gray-50">
+    <div class="max-w-4xl mx-auto px-4">
+      <h2 class="text-2xl md:text-3xl font-bold mb-6">Dlaczego druk Chestny Znak wymaga specjalisty?</h2>
+      <div class="space-y-6">
+        <div class="bg-white rounded-xl p-6 shadow-sm">
+          <h3 class="text-lg font-bold text-blue-800 mb-2">Każda etykieta jest unikalna</h3>
+          <p class="text-gray-600">
+            W odróżnieniu od zwykłego druku, gdzie wszystkie naklejki są identyczne, w systemie Chestny Znak
+            <strong>każda pojedyncza sztuka produktu</strong> musi mieć swój własny, niepowtarzalny kod Data Matrix.
+            Przykład: opakowanie zbiorcze 30 batonów wymaga wydrukowania 30 różnych naklejek + 1 kodu agregacji na kartonie.
+          </p>
+        </div>
+        <div class="bg-white rounded-xl p-6 shadow-sm">
+          <h3 class="text-lg font-bold text-blue-800 mb-2">Druk danych zmiennych (Variable Data Printing)</h3>
+          <p class="text-gray-600">
+            Każda etykieta zawiera inne dane — wymaga to specjalistycznego oprogramowania i maszyn drukarskich
+            przystosowanych do druku danych zmiennych z wysoką prędkością i precyzją. Błąd w jednym kodzie oznacza
+            odrzucenie całej partii.
+          </p>
+        </div>
+        <div class="bg-white rounded-xl p-6 shadow-sm">
+          <h3 class="text-lg font-bold text-blue-800 mb-2">Agregacja i hierarchia kodów</h3>
+          <p class="text-gray-600">
+            System wymaga nie tylko kodów na poziomie jednostkowym, ale również <strong>kodów agregacji</strong>
+            na opakowaniach zbiorczych i paletach. Cała hierarchia musi być spójna i zarejestrowana w systemie.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- What we deliver -->
+  <section class="py-16 md:py-20">
+    <div class="max-w-4xl mx-auto px-4">
+      <h2 class="text-2xl md:text-3xl font-bold mb-8">Co oferujemy?</h2>
+      <div class="grid md:grid-cols-2 gap-6">
+        <div class="flex gap-4">
+          <div class="flex-shrink-0 w-12 h-12 bg-blue-100 text-blue-700 rounded-lg flex items-center justify-center">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
+          </div>
+          <div>
+            <h3 class="font-bold mb-1">Druk dostarczonych kodów Data Matrix</h3>
+            <p class="text-gray-600 text-sm">Klient dostarcza nam pliki z unikalnymi kodami, a my drukujemy je na naklejkach w wymaganej kolejności i układzie.</p>
+          </div>
+        </div>
+        <div class="flex gap-4">
+          <div class="flex-shrink-0 w-12 h-12 bg-blue-100 text-blue-700 rounded-lg flex items-center justify-center">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
+          </div>
+          <div>
+            <h3 class="font-bold mb-1">Kody agregacji</h3>
+            <p class="text-gray-600 text-sm">Etykiety na opakowania zbiorcze i palety z kodami łączącymi jednostki w hierarchię.</p>
+          </div>
+        </div>
+        <div class="flex gap-4">
+          <div class="flex-shrink-0 w-12 h-12 bg-blue-100 text-blue-700 rounded-lg flex items-center justify-center">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
+          </div>
+          <div>
+            <h3 class="font-bold mb-1">Wysoki nakład, szybka realizacja</h3>
+            <p class="text-gray-600 text-sm">Obsługujemy duże wolumeny druku danych zmiennych z krótkim czasem realizacji.</p>
+          </div>
+        </div>
+        <div class="flex gap-4">
+          <div class="flex-shrink-0 w-12 h-12 bg-blue-100 text-blue-700 rounded-lg flex items-center justify-center">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
+          </div>
+          <div>
+            <h3 class="font-bold mb-1">Doświadczenie od 1997 roku</h3>
+            <p class="text-gray-600 text-sm">Ponad 25 lat w branży poligraficznej. Wiemy, jak drukować precyzyjnie i niezawodnie.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Expanding categories -->
+  <section class="py-16 md:py-20 bg-blue-900 text-white">
+    <div class="max-w-4xl mx-auto px-4">
+      <h2 class="text-2xl md:text-3xl font-bold mb-6">System się rozszerza — nowe kategorie 2025-2026</h2>
+      <p class="text-blue-100 mb-8">
+        Rosyjski rząd systematycznie poszerza listę produktów objętych obowiązkowym oznakowaniem.
+        Jeśli eksportujesz do Rosji, prawdopodobnie potrzebujesz oznaczeń Chestny Znak.
+      </p>
+      <div class="grid sm:grid-cols-2 md:grid-cols-3 gap-4">
+        {[
+          'Wyroby tytoniowe', 'Obuwie', 'Perfumy i kosmetyki', 'Opony',
+          'Leki i farmaceutyki', 'Nabiał', 'Woda butelkowana', 'Piwo',
+          'Odzież', 'Wyroby cukiernicze', 'Herbata i kawa', 'Elektronika',
+        ].map(category => (
+          <div class="bg-white/10 rounded-lg px-4 py-3 text-sm font-medium">
+            {category}
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="py-16 md:py-20">
+    <div class="max-w-4xl mx-auto px-4">
+      <h2 class="text-2xl md:text-3xl font-bold mb-8 text-center">Najczęstsze pytania o Chestny Znak</h2>
+      <div class="space-y-4">
+        {faqItems.map(item => (
+          <details class="group bg-gray-50 rounded-xl">
+            <summary class="cursor-pointer px-6 py-4 font-semibold text-gray-800 flex justify-between items-center">
+              {item.question}
+              <svg class="w-5 h-5 text-gray-400 group-open:rotate-180 transition-transform flex-shrink-0 ml-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
+            </summary>
+            <div class="px-6 pb-4 text-gray-600">
+              {item.answer}
+            </div>
+          </details>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-16 md:py-20 bg-gray-50">
+    <div class="max-w-3xl mx-auto px-4 text-center">
+      <h2 class="text-2xl md:text-3xl font-bold mb-4">Potrzebujesz druku oznaczeń Chestny Znak?</h2>
+      <p class="text-gray-600 mb-8">
+        Skontaktuj się z nami — wycenimy Twoje zamówienie i doradzimy w kwestii wymagań systemu.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="/kontakt/" class="bg-blue-700 text-white font-bold px-8 py-3 rounded-lg hover:bg-blue-800 transition-colors">
+          Wyślij zapytanie
+        </a>
+        <a href="tel:+48604286423" class="border-2 border-blue-700 text-blue-700 font-bold px-8 py-3 rounded-lg hover:bg-blue-50 transition-colors">
+          Zadzwoń: 604 286 423
+        </a>
+      </div>
+    </div>
+  </section>
+
+</Base>
