@@ -1,0 +1,152 @@
+---
+import Base from '../../layouts/Base.astro';
+
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "@id": "https://wipp-drukarnia.pl/#business",
+  "name": "Wipp Piotr Prokopiuk — Printing House",
+  "image": "https://wipp-drukarnia.pl/logo.png",
+  "description": "Digital printing house in Białystok. Specializing in Data Matrix code printing, stickers and self-adhesive labels.",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "ul. Kombatantów 7A",
+    "addressLocality": "Białystok",
+    "postalCode": "15-110",
+    "addressCountry": "PL"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": 53.1500,
+    "longitude": 23.1595
+  },
+  "telephone": "+48604286423",
+  "email": "wippdrukarnia@gmail.com",
+  "url": "https://wipp-drukarnia.pl",
+  "openingHoursSpecification": {
+    "@type": "OpeningHoursSpecification",
+    "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+    "opens": "07:00",
+    "closes": "15:00"
+  },
+  "priceRange": "$$",
+  "areaServed": [
+    { "@type": "City", "name": "Białystok" },
+    { "@type": "Country", "name": "Poland" }
+  ]
+};
+---
+
+<Base
+  lang="en"
+  title="WIPP Printing House Białystok — Data Matrix codes, stickers, digital printing"
+  description="Digital printing house in Białystok. We specialize in printing Data Matrix codes, stickers and self-adhesive labels. Fast turnaround, competitive prices."
+  schema={schema}
+>
+
+  <!-- Hero -->
+  <section class="pt-24 pb-16 md:pt-32 md:pb-24 bg-gradient-to-br from-blue-800 to-blue-950 text-white">
+    <div class="max-w-6xl mx-auto px-4 text-center">
+      <h1 class="text-3xl md:text-5xl font-extrabold leading-tight mb-6">
+        Digital printing house in Białystok<br />
+        <span class="text-blue-300">Data Matrix code specialists</span>
+      </h1>
+      <p class="text-lg md:text-xl text-blue-100 max-w-3xl mx-auto mb-8">
+        We print supplied Data Matrix codes on stickers.
+        Each product — an individual label, in the right order. Fast, precise, on time.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="/en/kontakt/" class="bg-white text-blue-800 font-bold px-8 py-3 rounded-lg hover:bg-blue-50 transition-colors text-lg">
+          Get a quote
+        </a>
+        <a href="/en/data-matrix/" class="border-2 border-white text-white font-bold px-8 py-3 rounded-lg hover:bg-white/10 transition-colors text-lg">
+          Learn more
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services -->
+  <section class="py-16 md:py-24 bg-gray-50">
+    <div class="max-w-6xl mx-auto px-4">
+      <h2 class="text-2xl md:text-4xl font-bold text-center mb-12">Our services</h2>
+      <div class="grid md:grid-cols-3 gap-8">
+
+        <a href="/en/data-matrix/" class="group bg-white rounded-xl shadow-md hover:shadow-lg transition-shadow p-8 text-center">
+          <div class="w-16 h-16 bg-blue-100 text-blue-700 rounded-full flex items-center justify-center mx-auto mb-4">
+            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v1m6 11h2m-6 0h-2v4m0-11v3m0 0h.01M12 12h4.01M16 20h4M4 12h4m12 0h.01M5 8h2a1 1 0 001-1V5a1 1 0 00-1-1H5a1 1 0 00-1 1v2a1 1 0 001 1zm12 0h2a1 1 0 001-1V5a1 1 0 00-1-1h-2a1 1 0 00-1 1v2a1 1 0 001 1zM5 20h2a1 1 0 001-1v-2a1 1 0 00-1-1H5a1 1 0 00-1 1v2a1 1 0 001 1z" /></svg>
+          </div>
+          <h3 class="text-xl font-bold mb-2 group-hover:text-blue-700 transition-colors">Data Matrix Codes</h3>
+          <p class="text-gray-600 text-sm">
+            Professional printing of supplied Data Matrix codes on stickers — in the required order, on time.
+          </p>
+        </a>
+
+        <a href="/en/uslugi/" class="group bg-white rounded-xl shadow-md hover:shadow-lg transition-shadow p-8 text-center">
+          <div class="w-16 h-16 bg-green-100 text-green-700 rounded-full flex items-center justify-center mx-auto mb-4">
+            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l7 7a2 2 0 010 2.828l-7 7a2 2 0 01-2.828 0l-7-7A2 2 0 013 12V7a4 4 0 014-4z" /></svg>
+          </div>
+          <h3 class="text-xl font-bold mb-2 group-hover:text-green-700 transition-colors">Stickers & labels</h3>
+          <p class="text-gray-600 text-sm">
+            Self-adhesive labels, product stickers, barcodes. Printing on paper, foil, and specialty materials.
+          </p>
+        </a>
+
+        <a href="/en/uslugi/" class="group bg-white rounded-xl shadow-md hover:shadow-lg transition-shadow p-8 text-center">
+          <div class="w-16 h-16 bg-orange-100 text-orange-700 rounded-full flex items-center justify-center mx-auto mb-4">
+            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z" /></svg>
+          </div>
+          <h3 class="text-xl font-bold mb-2 group-hover:text-orange-700 transition-colors">Digital printing</h3>
+          <p class="text-gray-600 text-sm">
+            Business cards, flyers, posters, brochures, letterheads. Even small runs. Express 24-48h.
+          </p>
+        </a>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Why us -->
+  <section class="py-16 md:py-24 bg-blue-900 text-white">
+    <div class="max-w-6xl mx-auto px-4">
+      <h2 class="text-2xl md:text-4xl font-bold text-center mb-12">Why WIPP?</h2>
+      <div class="grid sm:grid-cols-2 md:grid-cols-4 gap-8 text-center">
+        <div>
+          <div class="text-4xl font-extrabold text-blue-300 mb-2">since 1997</div>
+          <p class="text-blue-100">Years in the printing industry</p>
+        </div>
+        <div>
+          <div class="text-4xl font-extrabold text-blue-300 mb-2">10000+</div>
+          <p class="text-blue-100">Orders fulfilled</p>
+        </div>
+        <div>
+          <div class="text-4xl font-extrabold text-blue-300 mb-2">24-48h</div>
+          <p class="text-blue-100">Express turnaround</p>
+        </div>
+        <div>
+          <div class="text-4xl font-extrabold text-blue-300 mb-2">Unique</div>
+          <p class="text-blue-100">Specialty in non-standard orders</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-16 md:py-20 bg-gray-50">
+    <div class="max-w-3xl mx-auto px-4 text-center">
+      <h2 class="text-2xl md:text-3xl font-bold mb-4">Need Data Matrix code printing?</h2>
+      <p class="text-gray-600 mb-8 text-lg">
+        Contact us — we'll prepare a quote and fulfill your order quickly and on time.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="/en/kontakt/" class="bg-blue-700 text-white font-bold px-8 py-3 rounded-lg hover:bg-blue-800 transition-colors text-lg">
+          Send inquiry
+        </a>
+        <a href="tel:+48604286423" class="border-2 border-blue-700 text-blue-700 font-bold px-8 py-3 rounded-lg hover:bg-blue-50 transition-colors text-lg">
+          Call: 604 286 423
+        </a>
+      </div>
+    </div>
+  </section>
+
+</Base>

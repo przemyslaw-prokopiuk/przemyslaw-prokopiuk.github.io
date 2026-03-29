@@ -1,0 +1,180 @@
+---
+import Base from '../../layouts/Base.astro';
+
+const faqItems = [
+  {
+    question: "What is a Data Matrix code?",
+    answer: "A Data Matrix code is a two-dimensional barcode that can store a large amount of information in a small area. Each product unit receives a unique code containing a GTIN number, serial number, and verification key. These codes are used in product marking systems across many markets."
+  },
+  {
+    question: "Which products require Data Matrix codes?",
+    answer: "Data Matrix codes are required in many industries, including: tobacco products, footwear, perfumes, tires, pharmaceuticals, dairy, bottled water, beer, clothing, confectionery, tea, coffee, and electronics. The list of categories continues to grow."
+  },
+  {
+    question: "Why is Data Matrix code printing difficult?",
+    answer: "Each individual product unit must have its own unique Data Matrix code. For example, a bulk package of 30 candy bars requires 30 individual stickers + 1 aggregation code on the box. This is variable data printing, which requires specialized equipment and experience."
+  },
+  {
+    question: "What does a Data Matrix code contain?",
+    answer: "A Data Matrix code contains at least four groups of information: GTIN (Global Trade Item Number), product serial number, verification key, and cryptographic code. Together, they form a unique identifier that allows tracking each product unit in the supply chain."
+  },
+  {
+    question: "What does the ordering process look like at WIPP?",
+    answer: "The process is simple:\n1) You send us a file with unique Data Matrix codes.\n2) We prepare the label design according to system requirements.\n3) We print the stickers with individual codes in the required order.\n4) We deliver the finished labels — each with a unique code, ready to apply to the product."
+  },
+  {
+    question: "How much does Data Matrix code printing cost?",
+    answer: "The price depends on the quantity, label size, and material. Contact us by phone (604 286 423) or email — we'll prepare an individual quote within 24-48 hours."
+  }
+];
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": faqItems.map(item => ({
+    "@type": "Question",
+    "name": item.question,
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": item.answer
+    }
+  }))
+};
+---
+
+<Base
+  lang="en"
+  title="Data Matrix code printing — unique labels | WIPP Printing House Białystok"
+  description="Printing individual Data Matrix codes on stickers. We specialize in unique label printing for every product unit. WIPP Printing House Białystok."
+  schema={faqSchema}
+>
+
+  <!-- Hero -->
+  <section class="pt-24 pb-12 md:pt-32 md:pb-16 bg-gradient-to-br from-blue-800 to-blue-950 text-white">
+    <div class="max-w-4xl mx-auto px-4 text-center">
+      <h1 class="text-3xl md:text-5xl font-extrabold leading-tight mb-6">
+        Data Matrix code printing<br />
+        <span class="text-blue-300">Unique labels for every product</span>
+      </h1>
+      <p class="text-lg text-blue-100 max-w-2xl mx-auto">
+        We specialize in printing unique Data Matrix codes on stickers — each product unit receives an individual code.
+      </p>
+    </div>
+  </section>
+
+  <!-- Why it's hard -->
+  <section class="py-16 md:py-20 bg-gray-50">
+    <div class="max-w-4xl mx-auto px-4">
+      <h2 class="text-2xl md:text-3xl font-bold mb-6">Why does Data Matrix code printing require a specialist?</h2>
+      <div class="space-y-6">
+        <div class="bg-white rounded-xl p-6 shadow-sm">
+          <h3 class="text-lg font-bold text-blue-800 mb-2">Each label is unique</h3>
+          <p class="text-gray-600">
+            Unlike standard printing where all stickers are identical,
+            <strong>each individual product unit</strong> must have its own unique Data Matrix code.
+            Example: a bulk package of 30 candy bars requires 30 different stickers + 1 aggregation code on the box.
+          </p>
+        </div>
+        <div class="bg-white rounded-xl p-6 shadow-sm">
+          <h3 class="text-lg font-bold text-blue-800 mb-2">Variable Data Printing</h3>
+          <p class="text-gray-600">
+            Each label contains different data — this requires specialized software and printing equipment
+            adapted for high-speed, high-precision variable data printing. An error in a single code means
+            rejection of the entire batch.
+          </p>
+        </div>
+        <div class="bg-white rounded-xl p-6 shadow-sm">
+          <h3 class="text-lg font-bold text-blue-800 mb-2">Code aggregation and hierarchy</h3>
+          <p class="text-gray-600">
+            The system requires not only unit-level codes, but also <strong>aggregation codes</strong>
+            on bulk packages and pallets. The entire hierarchy must be consistent and registered.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- What we deliver -->
+  <section class="py-16 md:py-20">
+    <div class="max-w-4xl mx-auto px-4">
+      <h2 class="text-2xl md:text-3xl font-bold mb-8">What do we offer?</h2>
+      <div class="grid md:grid-cols-2 gap-6">
+        <div class="flex gap-4">
+          <div class="flex-shrink-0 w-12 h-12 bg-blue-100 text-blue-700 rounded-lg flex items-center justify-center">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
+          </div>
+          <div>
+            <h3 class="font-bold mb-1">Printing supplied codes</h3>
+            <p class="text-gray-600 text-sm">The client provides us with files containing unique Data Matrix codes, and we print them on stickers in the required order and layout.</p>
+          </div>
+        </div>
+        <div class="flex gap-4">
+          <div class="flex-shrink-0 w-12 h-12 bg-blue-100 text-blue-700 rounded-lg flex items-center justify-center">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
+          </div>
+          <div>
+            <h3 class="font-bold mb-1">Aggregation codes</h3>
+            <p class="text-gray-600 text-sm">Labels for bulk packages and pallets with codes linking individual units into a hierarchy.</p>
+          </div>
+        </div>
+        <div class="flex gap-4">
+          <div class="flex-shrink-0 w-12 h-12 bg-blue-100 text-blue-700 rounded-lg flex items-center justify-center">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
+          </div>
+          <div>
+            <h3 class="font-bold mb-1">High volume, fast turnaround</h3>
+            <p class="text-gray-600 text-sm">We handle large volumes of variable data printing with short turnaround times.</p>
+          </div>
+        </div>
+        <div class="flex gap-4">
+          <div class="flex-shrink-0 w-12 h-12 bg-blue-100 text-blue-700 rounded-lg flex items-center justify-center">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
+          </div>
+          <div>
+            <h3 class="font-bold mb-1">Experience since 1997</h3>
+            <p class="text-gray-600 text-sm">Over 25 years in the printing industry. We know how to print precisely and reliably.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="py-16 md:py-20">
+    <div class="max-w-4xl mx-auto px-4">
+      <h2 class="text-2xl md:text-3xl font-bold mb-8 text-center">Frequently asked questions about Data Matrix codes</h2>
+      <div class="space-y-4">
+        {faqItems.map(item => (
+          <details class="group bg-gray-50 rounded-xl">
+            <summary class="cursor-pointer px-6 py-4 font-semibold text-gray-800 flex justify-between items-center">
+              {item.question}
+              <svg class="w-5 h-5 text-gray-400 group-open:rotate-180 transition-transform flex-shrink-0 ml-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
+            </summary>
+            <div class="px-6 pb-4 text-gray-600 whitespace-pre-line">
+              {item.answer}
+            </div>
+          </details>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-16 md:py-20 bg-gray-50">
+    <div class="max-w-3xl mx-auto px-4 text-center">
+      <h2 class="text-2xl md:text-3xl font-bold mb-4">Need Data Matrix code printing?</h2>
+      <p class="text-gray-600 mb-8">
+        Contact us — we'll quote your order and advise on requirements.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="/en/kontakt/" class="bg-blue-700 text-white font-bold px-8 py-3 rounded-lg hover:bg-blue-800 transition-colors">
+          Send inquiry
+        </a>
+        <a href="tel:+48604286423" class="border-2 border-blue-700 text-blue-700 font-bold px-8 py-3 rounded-lg hover:bg-blue-50 transition-colors">
+          Call: 604 286 423
+        </a>
+      </div>
+    </div>
+  </section>
+
+</Base>

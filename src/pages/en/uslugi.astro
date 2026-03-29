@@ -1,83 +1,84 @@
 ---
-import Base from '../layouts/Base.astro';
+import Base from '../../layouts/Base.astro';
 ---
 
 <Base
-  title="Usługi drukarskie — naklejki, etykiety, druk cyfrowy | Drukarnia WIPP Białystok"
-  description="Oferujemy druk naklejek, etykiet samoprzylepnych, kodów Data Matrix, wizytówek, ulotek, plakatów i koszulek z nadrukiem. Drukarnia WIPP Białystok."
+  lang="en"
+  title="Printing services — stickers, labels, digital printing | WIPP Białystok"
+  description="We offer printing of stickers, self-adhesive labels, Data Matrix codes, business cards, flyers, posters, and custom t-shirts. WIPP Printing House Białystok."
 >
 
   <!-- Hero -->
   <section class="pt-24 pb-12 md:pt-32 md:pb-16 bg-gradient-to-br from-blue-800 to-blue-950 text-white">
     <div class="max-w-4xl mx-auto px-4 text-center">
-      <h1 class="text-3xl md:text-5xl font-extrabold mb-4">Usługi drukarskie</h1>
-      <p class="text-lg text-blue-100">Od kodów Data Matrix po wizytówki — realizujemy każde zlecenie.</p>
+      <h1 class="text-3xl md:text-5xl font-extrabold mb-4">Printing services</h1>
+      <p class="text-lg text-blue-100">From Data Matrix codes to business cards — we handle every order.</p>
     </div>
   </section>
 
   <section class="py-16 md:py-24">
     <div class="max-w-5xl mx-auto px-4 space-y-16">
 
-      <!-- Kody Data Matrix -->
+      <!-- Data Matrix -->
       <div class="md:flex gap-8 items-start">
         <div class="flex-shrink-0 w-16 h-16 bg-blue-100 text-blue-700 rounded-xl flex items-center justify-center mb-4 md:mb-0">
           <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v1m6 11h2m-6 0h-2v4m0-11v3m0 0h.01M12 12h4.01M16 20h4M4 12h4m12 0h.01M5 8h2a1 1 0 001-1V5a1 1 0 00-1-1H5a1 1 0 00-1 1v2a1 1 0 001 1zm12 0h2a1 1 0 001-1V5a1 1 0 00-1-1h-2a1 1 0 00-1 1v2a1 1 0 001 1zM5 20h2a1 1 0 001-1v-2a1 1 0 00-1-1H5a1 1 0 00-1 1v2a1 1 0 001 1z" /></svg>
         </div>
         <div>
-          <h2 class="text-2xl font-bold mb-3">Kody Data Matrix — oznakowanie produktów</h2>
+          <h2 class="text-2xl font-bold mb-3">Data Matrix codes — product marking</h2>
           <p class="text-gray-600 mb-4">
-            Nasza wiodąca specjalizacja. Klient dostarcza nam pliki z unikalnymi kodami Data Matrix,
-            a my drukujemy je na naklejkach w wymaganej kolejności i układzie — zarówno etykiety jednostkowe,
-            jak i kody agregacji na opakowaniach zbiorczych.
+            Our leading specialty. The client provides us with files containing unique Data Matrix codes,
+            and we print them on stickers in the required order and layout — both individual labels
+            and aggregation codes on bulk packages.
           </p>
-          <a href="/data-matrix/" class="text-blue-700 font-semibold hover:underline">Dowiedz się więcej o kodach Data Matrix &rarr;</a>
+          <a href="/en/data-matrix/" class="text-blue-700 font-semibold hover:underline">Learn more about Data Matrix codes &rarr;</a>
         </div>
       </div>
 
       <hr class="border-gray-200" />
 
-      <!-- Naklejki -->
+      <!-- Stickers -->
       <div class="md:flex gap-8 items-start">
         <div class="flex-shrink-0 w-16 h-16 bg-green-100 text-green-700 rounded-xl flex items-center justify-center mb-4 md:mb-0">
           <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l7 7a2 2 0 010 2.828l-7 7a2 2 0 01-2.828 0l-7-7A2 2 0 013 12V7a4 4 0 014-4z" /></svg>
         </div>
         <div>
-          <h2 class="text-2xl font-bold mb-3">Naklejki i etykiety samoprzylepne</h2>
+          <h2 class="text-2xl font-bold mb-3">Stickers and self-adhesive labels</h2>
           <p class="text-gray-600">
-            Druk na papierze samoprzylepnym, folii transparentnej, folii matowej i innych materiałach specjalnych.
-            Etykiety produktowe, naklejki promocyjne, kody kreskowe, naklejki zabezpieczające.
-            Realizujemy zarówno krótkie, jak i długie serie.</p>
+            Printing on self-adhesive paper, transparent foil, matte foil, and other specialty materials.
+            Product labels, promotional stickers, barcodes, security stickers.
+            We handle both short and long runs.</p>
         </div>
       </div>
 
       <hr class="border-gray-200" />
 
-      <!-- Poligrafia -->
+      <!-- Digital printing -->
       <div class="md:flex gap-8 items-start">
         <div class="flex-shrink-0 w-16 h-16 bg-orange-100 text-orange-700 rounded-xl flex items-center justify-center mb-4 md:mb-0">
           <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z" /></svg>
         </div>
         <div>
-          <h2 class="text-2xl font-bold mb-3">Druk cyfrowy i offsetowy</h2>
+          <h2 class="text-2xl font-bold mb-3">Digital and offset printing</h2>
           <p class="text-gray-600">
-            Wizytówki, ulotki, plakaty, foldery, katalogi, papier firmowy. Druk na papierze offsetowym,
-            kredowym i kartonach. Realizacja nawet w małych nakładach z opcją expressu 24h.
+            Business cards, flyers, posters, brochures, catalogues, letterheads. Printing on offset paper,
+            coated paper, and cardboard. Even small runs with express 24-48h option.
           </p>
         </div>
       </div>
 
       <hr class="border-gray-200" />
 
-      <!-- Koszulki -->
+      <!-- T-shirts -->
       <div class="md:flex gap-8 items-start">
         <div class="flex-shrink-0 w-16 h-16 bg-purple-100 text-purple-700 rounded-xl flex items-center justify-center mb-4 md:mb-0">
           <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" /></svg>
         </div>
         <div>
-          <h2 class="text-2xl font-bold mb-3">Koszulki z nadrukiem</h2>
+          <h2 class="text-2xl font-bold mb-3">Custom printed t-shirts</h2>
           <p class="text-gray-600">
-            Nadruki na koszulkach, wprasowanki, personalizacja odzieży. Realizujemy zamówienia
-            nawet w jednej sztuce — idealne dla drużyn, klas szkolnych, firm i eventów.
+            T-shirt printing, iron-on transfers, clothing personalization. We handle orders
+            starting from just one piece — perfect for teams, school classes, companies, and events.
           </p>
         </div>
       </div>
@@ -88,10 +89,10 @@ import Base from '../layouts/Base.astro';
   <!-- CTA -->
   <section class="py-16 bg-gray-50">
     <div class="max-w-3xl mx-auto px-4 text-center">
-      <h2 class="text-2xl font-bold mb-4">Masz nietypowe zlecenie?</h2>
-      <p class="text-gray-600 mb-8">Naszą specjalnością są nietypowe zamówienia. Skontaktuj się — doradzimy i wycenimy.</p>
-      <a href="/kontakt/" class="bg-blue-700 text-white font-bold px-8 py-3 rounded-lg hover:bg-blue-800 transition-colors">
-        Zamów wycenę
+      <h2 class="text-2xl font-bold mb-4">Have a non-standard order?</h2>
+      <p class="text-gray-600 mb-8">Non-standard orders are our specialty. Contact us — we'll advise and provide a quote.</p>
+      <a href="/en/kontakt/" class="bg-blue-700 text-white font-bold px-8 py-3 rounded-lg hover:bg-blue-800 transition-colors">
+        Get a quote
       </a>
     </div>
   </section>

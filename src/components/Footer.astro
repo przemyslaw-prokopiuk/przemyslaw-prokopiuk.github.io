@@ -1,5 +1,49 @@
 ---
+interface Props {
+  lang?: string;
+}
+
+const { lang = 'pl' } = Astro.props;
 const year = new Date().getFullYear();
+const prefix = lang === 'pl' ? '' : `/${lang}`;
+
+const t: Record<string, Record<string, string>> = {
+  pl: {
+    desc: 'Profesjonalna drukarnia cyfrowa w Białymstoku. Specjalizujemy się w druku naklejek, etykiet samoprzylepnych i kodów Data Matrix.',
+    nav: 'Nawigacja',
+    contact: 'Kontakt',
+    home: 'Strona Główna',
+    dataMatrix: 'Data Matrix',
+    services: 'Usługi',
+    portfolio: 'Realizacje',
+    contactPage: 'Kontakt',
+    hours: 'Pn-Pt: 07:00 - 15:00',
+  },
+  en: {
+    desc: 'Professional digital printing house in Białystok. We specialize in printing stickers, self-adhesive labels, and Data Matrix codes.',
+    nav: 'Navigation',
+    contact: 'Contact',
+    home: 'Home',
+    dataMatrix: 'Data Matrix',
+    services: 'Services',
+    portfolio: 'Portfolio',
+    contactPage: 'Contact',
+    hours: 'Mon-Fri: 07:00 - 15:00',
+  },
+  ru: {
+    desc: 'Профессиональная цифровая типография в Белостоке. Специализируемся на печати наклеек, самоклеящихся этикеток и кодов Data Matrix.',
+    nav: 'Навигация',
+    contact: 'Контакт',
+    home: 'Главная',
+    dataMatrix: 'Data Matrix',
+    services: 'Услуги',
+    portfolio: 'Портфолио',
+    contactPage: 'Контакт',
+    hours: 'Пн-Пт: 07:00 - 15:00',
+  },
+};
+
+const l = t[lang] || t.pl;
 ---
 
 <footer class="bg-gray-900 text-gray-300">
@@ -8,27 +52,24 @@ const year = new Date().getFullYear();
       <!-- Company -->
       <div>
         <h3 class="text-white text-lg font-bold mb-3">Drukarnia WIPP</h3>
-        <p class="text-sm leading-relaxed">
-          Profesjonalna drukarnia cyfrowa w Białymstoku. Specjalizujemy się w druku naklejek, etykiet
-          samoprzylepnych i kodów Data Matrix.
-        </p>
+        <p class="text-sm leading-relaxed">{l.desc}</p>
       </div>
 
       <!-- Quick links -->
       <div>
-        <h3 class="text-white text-lg font-bold mb-3">Nawigacja</h3>
+        <h3 class="text-white text-lg font-bold mb-3">{l.nav}</h3>
         <ul class="space-y-2 text-sm">
-          <li><a href="/" class="hover:text-white transition-colors">Strona Główna</a></li>
-          <li><a href="/chestny-znak/" class="hover:text-white transition-colors">Data Matrix</a></li>
-          <li><a href="/uslugi/" class="hover:text-white transition-colors">Usługi</a></li>
-          <li><a href="/realizacje/" class="hover:text-white transition-colors">Realizacje</a></li>
-          <li><a href="/kontakt/" class="hover:text-white transition-colors">Kontakt</a></li>
+          <li><a href={`${prefix}/`} class="hover:text-white transition-colors">{l.home}</a></li>
+          <li><a href={`${prefix}/data-matrix/`} class="hover:text-white transition-colors">{l.dataMatrix}</a></li>
+          <li><a href={`${prefix}/uslugi/`} class="hover:text-white transition-colors">{l.services}</a></li>
+          <li><a href={`${prefix}/realizacje/`} class="hover:text-white transition-colors">{l.portfolio}</a></li>
+          <li><a href={`${prefix}/kontakt/`} class="hover:text-white transition-colors">{l.contactPage}</a></li>
         </ul>
       </div>
 
       <!-- Contact -->
       <div>
-        <h3 class="text-white text-lg font-bold mb-3">Kontakt</h3>
+        <h3 class="text-white text-lg font-bold mb-3">{l.contact}</h3>
         <address class="not-italic text-sm space-y-2">
           <p>ul. Kombatantów 7A<br />15-110 Białystok</p>
           <p>
@@ -37,7 +78,7 @@ const year = new Date().getFullYear();
           <p>
             <a href="mailto:wippdrukarnia@gmail.com" class="hover:text-white transition-colors">wippdrukarnia@gmail.com</a>
           </p>
-          <p>Pn-Pt: 07:00 - 15:00</p>
+          <p>{l.hours}</p>
         </address>
       </div>
     </div>

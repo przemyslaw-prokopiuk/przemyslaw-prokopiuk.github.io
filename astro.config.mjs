@@ -6,6 +6,13 @@ import sitemap from '@astrojs/sitemap';
 // https://astro.build/config
 export default defineConfig({
   site: 'https://wipp-drukarnia.pl',
+  i18n: {
+    defaultLocale: 'pl',
+    locales: ['pl', 'en', 'ru'],
+    routing: {
+      prefixDefaultLocale: false,
+    },
+  },
   vite: {
     plugins: [tailwindcss()]
   },
