@@ -1,0 +1,49 @@
+---
+const year = new Date().getFullYear();
+---
+
+<footer class="bg-gray-900 text-gray-300">
+  <div class="max-w-6xl mx-auto px-4 py-12">
+    <div class="grid md:grid-cols-3 gap-8">
+      <!-- Company -->
+      <div>
+        <h3 class="text-white text-lg font-bold mb-3">Drukarnia WIPP</h3>
+        <p class="text-sm leading-relaxed">
+          Profesjonalna drukarnia cyfrowa w Białymstoku. Specjalizujemy się w druku naklejek i oznakowaniu
+          produktów w systemie Chestny Znak dla rynku rosyjskiego.
+        </p>
+      </div>
+
+      <!-- Quick links -->
+      <div>
+        <h3 class="text-white text-lg font-bold mb-3">Nawigacja</h3>
+        <ul class="space-y-2 text-sm">
+          <li><a href="/" class="hover:text-white transition-colors">Strona Główna</a></li>
+          <li><a href="/chestny-znak/" class="hover:text-white transition-colors">Chestny Znak</a></li>
+          <li><a href="/uslugi/" class="hover:text-white transition-colors">Usługi</a></li>
+          <li><a href="/realizacje/" class="hover:text-white transition-colors">Realizacje</a></li>
+          <li><a href="/kontakt/" class="hover:text-white transition-colors">Kontakt</a></li>
+        </ul>
+      </div>
+
+      <!-- Contact -->
+      <div>
+        <h3 class="text-white text-lg font-bold mb-3">Kontakt</h3>
+        <address class="not-italic text-sm space-y-2">
+          <p>ul. Kombatantów 7A<br />15-110 Białystok</p>
+          <p>
+            <a href="tel:+48604286423" class="hover:text-white transition-colors">604 286 423</a>
+          </p>
+          <p>
+            <a href="mailto:wippdrukarnia@gmail.com" class="hover:text-white transition-colors">wippdrukarnia@gmail.com</a>
+          </p>
+          <p>Pn-Pt: 8:00 - 16:00</p>
+        </address>
+      </div>
+    </div>
+
+    <div class="mt-10 pt-6 border-t border-gray-700 text-center text-sm text-gray-500">
+      &copy; {year} Wipp Piotr Prokopiuk — Drukarnia Białystok. Wszelkie prawa zastrzeżone.
+    </div>
+  </div>
+</footer>
