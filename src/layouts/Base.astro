@@ -2,6 +2,7 @@
 import '../styles/global.css';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
+import MobileBar from '../components/MobileBar.astro';
 
 interface Props {
   title: string;
@@ -14,9 +15,13 @@ interface Props {
 
 const { title, description, lang = 'pl', canonical, ogImage, schema } = Astro.props;
 const canonicalUrl = canonical || Astro.url.href;
-const ogImg = ogImage || '/logo.png';
+const ogImg = ogImage || '/og-image.png';
 const localeMap: Record<string, string> = { pl: 'pl_PL', en: 'en_US', ru: 'ru_RU' };
 const ogLocale = localeMap[lang] || 'pl_PL';
+
+// hreflang alternates: strip the locale prefix to get the shared base path
+const basePath = Astro.url.pathname.replace(/^\/(en|ru)(?=\/|$)/, '') || '/';
+const langHref = (l: string) => new URL(l === 'pl' ? basePath : `/${l}${basePath}`, Astro.site).href;
 ---
 
 <!DOCTYPE html>
@@ -28,7 +33,14 @@ const ogLocale = localeMap[lang] || 'pl_PL';
   <meta name="description" content={description} />
   <meta name="author" content="Wipp Piotr Prokopiuk" />
   <meta name="robots" content="index, follow" />
+  <meta name="theme-color" content="#14213d" />
   <link rel="canonical" href={canonicalUrl} />
+
+  <!-- Language alternates -->
+  <link rel="alternate" hreflang="pl" href={langHref('pl')} />
+  <link rel="alternate" hreflang="en" href={langHref('en')} />
+  <link rel="alternate" hreflang="ru" href={langHref('ru')} />
+  <link rel="alternate" hreflang="x-default" href={langHref('pl')} />
 
   <!-- Open Graph -->
   <meta property="og:type" content="website" />
@@ -49,6 +61,11 @@ const ogLocale = localeMap[lang] || 'pl_PL';
   <link rel="icon" type="image/png" href="/logo.png" />
   <link rel="apple-touch-icon" href="/logo.png" />
 
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400..800&family=JetBrains+Mono:wght@400..700&display=swap" />
+
   <!-- Schema.org -->
   {schema && (
     <script type="application/ld+json" set:html={JSON.stringify(schema)} />
@@ -62,5 +79,7 @@ const ogLocale = localeMap[lang] || 'pl_PL';
     <slot />
   </main>
   <Footer lang={lang} />
+  <MobileBar lang={lang} />
+  <div class="h-[4.5rem] lg:hidden" aria-hidden="true"></div>
 </body>
 </html>

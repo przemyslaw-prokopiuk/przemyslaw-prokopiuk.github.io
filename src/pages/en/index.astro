@@ -1,5 +1,7 @@
 ---
 import Base from '../../layouts/Base.astro';
+import DataMatrix from '../../components/DataMatrix.astro';
+import CtaBanner from '../../components/CtaBanner.astro';
 
 const schema = {
   "@context": "https://schema.org",
@@ -23,6 +25,7 @@ const schema = {
   "telephone": "+48604286423",
   "email": "wippdrukarnia@gmail.com",
   "url": "https://wipp-drukarnia.pl",
+  "hasMap": "https://maps.google.com/?q=Wipp+Piotr+Prokopiuk+Kombatant%C3%B3w+7A+Bia%C5%82ystok",
   "openingHoursSpecification": {
     "@type": "OpeningHoursSpecification",
     "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
@@ -39,114 +42,175 @@ const schema = {
 
 <Base
   lang="en"
-  title="WIPP Printing House Białystok — Data Matrix codes, stickers, digital printing"
+  title="WIPP Label Printing House Białystok — Data Matrix codes, stickers, digital printing"
   description="Digital printing house in Białystok. We specialize in printing Data Matrix codes, stickers and self-adhesive labels. Fast turnaround, competitive prices."
   schema={schema}
 >
 
   <!-- Hero -->
-  <section class="pt-24 pb-16 md:pt-32 md:pb-24 bg-gradient-to-br from-blue-800 to-blue-950 text-white">
-    <div class="max-w-6xl mx-auto px-4 text-center">
-      <h1 class="text-3xl md:text-5xl font-extrabold leading-tight mb-6">
-        Digital printing house in Białystok<br />
-        <span class="text-blue-300">Data Matrix code specialists</span>
-      </h1>
-      <p class="text-lg md:text-xl text-blue-100 max-w-3xl mx-auto mb-8">
-        We print supplied Data Matrix codes on stickers.
-        Each product — an individual label, in the right order. Fast, precise, on time.
-      </p>
-      <div class="flex flex-col sm:flex-row gap-4 justify-center">
-        <a href="/en/kontakt/" class="bg-white text-blue-800 font-bold px-8 py-3 rounded-lg hover:bg-blue-50 transition-colors text-lg">
-          Get a quote
-        </a>
-        <a href="/en/data-matrix/" class="border-2 border-white text-white font-bold px-8 py-3 rounded-lg hover:bg-white/10 transition-colors text-lg">
-          Learn more
-        </a>
+  <section class="relative overflow-hidden bg-navy-950 text-white">
+    <div class="absolute inset-0 bg-grid-dark" aria-hidden="true"></div>
+    <div class="absolute -top-40 -right-20 w-[45rem] h-[45rem] bg-accent-500/15 rounded-full blur-3xl" aria-hidden="true"></div>
+    <div class="absolute -bottom-60 -left-40 w-[35rem] h-[35rem] bg-navy-700/40 rounded-full blur-3xl" aria-hidden="true"></div>
+
+    <div class="relative max-w-6xl mx-auto px-4 pt-32 pb-16 md:pt-40 md:pb-24 grid lg:grid-cols-[1.2fr_0.8fr] gap-12 items-center">
+      <div class="text-center lg:text-left">
+        <p class="eyebrow text-accent-400 mb-5">Digital printing house · Białystok</p>
+        <h1 class="text-4xl md:text-5xl xl:text-6xl font-extrabold tracking-tight leading-[1.05] mb-6">
+          Specialists in<br />
+          <span class="bg-gradient-to-r from-accent-300 to-accent-500 bg-clip-text text-transparent">Data Matrix codes</span>
+        </h1>
+        <p class="text-lg md:text-xl text-navy-200 max-w-2xl mx-auto lg:mx-0 mb-9 leading-relaxed">
+          We print supplied Data Matrix codes on stickers.
+          Each product — an individual label, in the right order. Fast, precise, on time.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+          <a href="/en/kontakt/" class="btn btn-light text-lg">Get a quote</a>
+          <a href="/en/data-matrix/" class="btn btn-outline-light text-lg">Learn more</a>
+        </div>
+        <div class="mt-12 flex flex-wrap gap-x-8 gap-y-3 justify-center lg:justify-start text-sm text-navy-200">
+          <span><span class="font-mono font-bold text-accent-400">25+</span> years of experience</span>
+          <span><span class="font-mono font-bold text-accent-400">10000+</span> orders fulfilled</span>
+          <span><span class="font-mono font-bold text-accent-400">24–48h</span> express turnaround</span>
+        </div>
+      </div>
+
+      <!-- Printed label artwork -->
+      <div class="relative hidden lg:block" aria-hidden="true">
+        <div class="absolute top-8 right-0 w-72 h-80 rotate-6 rounded-2xl bg-white/10 border border-white/10"></div>
+        <div class="anim-label relative w-72 mx-auto -rotate-3 rounded-2xl bg-white p-7 shadow-2xl shadow-black/40">
+          <div class="relative">
+            <div class="anim-code"><DataMatrix text="https://wipp-drukarnia.pl/en/" class="w-full text-navy-950" /></div>
+            <div class="anim-head" aria-hidden="true"></div>
+          </div>
+          <div class="mt-5 font-mono text-[11px] leading-relaxed text-navy-900">
+            (01) 05901234123457<br />
+            (21) 4KT9XQ2M8LDW<br />
+            (91) EE07<br />
+            (92) dGVzdEtleTJQcm9k
+          </div>
+          <div class="mt-4 pt-3 border-t border-dashed border-navy-200 flex justify-between items-center font-mono text-[10px] text-navy-400">
+            <span>WIPP · VDP</span><span>0001/10000</span>
+          </div>
+        </div>
+        <div class="absolute -bottom-5 -left-3 rounded-xl bg-accent-500 text-navy-950 font-mono text-xs font-bold px-4 py-2 shadow-lg rotate-3">
+          100% unique codes
+        </div>
       </div>
     </div>
   </section>
 
   <!-- Services -->
-  <section class="py-16 md:py-24 bg-gray-50">
+  <section class="py-16 md:py-24 bg-navy-50/60">
     <div class="max-w-6xl mx-auto px-4">
-      <h2 class="text-2xl md:text-4xl font-bold text-center mb-12">Our services</h2>
-      <div class="grid md:grid-cols-3 gap-8">
+      <div class="text-center mb-12">
+        <p class="eyebrow text-accent-600 mb-3">What we do</p>
+        <h2 class="text-3xl md:text-4xl font-extrabold tracking-tight">Our services</h2>
+      </div>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
 
-        <a href="/en/data-matrix/" class="group bg-white rounded-xl shadow-md hover:shadow-lg transition-shadow p-8 text-center">
-          <div class="w-16 h-16 bg-blue-100 text-blue-700 rounded-full flex items-center justify-center mx-auto mb-4">
-            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v1m6 11h2m-6 0h-2v4m0-11v3m0 0h.01M12 12h4.01M16 20h4M4 12h4m12 0h.01M5 8h2a1 1 0 001-1V5a1 1 0 00-1-1H5a1 1 0 00-1 1v2a1 1 0 001 1zm12 0h2a1 1 0 001-1V5a1 1 0 00-1-1h-2a1 1 0 00-1 1v2a1 1 0 001 1zM5 20h2a1 1 0 001-1v-2a1 1 0 00-1-1H5a1 1 0 00-1 1v2a1 1 0 001 1z" /></svg>
+        <a href="/en/data-matrix/" class="group bg-white rounded-2xl border border-navy-100 p-6 shadow-sm transition-all duration-300 hover:shadow-xl hover:shadow-navy-900/10 hover:-translate-y-1">
+          <div class="w-14 h-14 rounded-xl bg-navy-900 text-white flex items-center justify-center mb-5 group-hover:bg-accent-500 transition-colors">
+            <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v1m6 11h2m-6 0h-2v4m0-11v3m0 0h.01M12 12h4.01M16 20h4M4 12h4m12 0h.01M5 8h2a1 1 0 001-1V5a1 1 0 00-1-1H5a1 1 0 00-1 1v2a1 1 0 001 1zm12 0h2a1 1 0 001-1V5a1 1 0 00-1-1h-2a1 1 0 00-1 1v2a1 1 0 001 1zM5 20h2a1 1 0 001-1v-2a1 1 0 00-1-1H5a1 1 0 00-1 1v2a1 1 0 001 1z" /></svg>
           </div>
-          <h3 class="text-xl font-bold mb-2 group-hover:text-blue-700 transition-colors">Data Matrix Codes</h3>
-          <p class="text-gray-600 text-sm">
+          <h3 class="text-xl font-extrabold tracking-tight mb-2">Data Matrix Codes</h3>
+          <p class="text-gray-600 text-sm leading-relaxed mb-5">
             Professional printing of supplied Data Matrix codes on stickers — in the required order, on time.
           </p>
+          <span class="inline-flex items-center gap-1.5 text-sm font-bold text-navy-700 group-hover:text-accent-600 transition-colors">
+            See details
+            <svg class="w-4 h-4 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
+          </span>
         </a>
 
-        <a href="/en/uslugi/" class="group bg-white rounded-xl shadow-md hover:shadow-lg transition-shadow p-8 text-center">
-          <div class="w-16 h-16 bg-green-100 text-green-700 rounded-full flex items-center justify-center mx-auto mb-4">
-            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l7 7a2 2 0 010 2.828l-7 7a2 2 0 01-2.828 0l-7-7A2 2 0 013 12V7a4 4 0 014-4z" /></svg>
+        <a href="/en/kody-kreskowe/" class="group bg-white rounded-2xl border border-navy-100 p-6 shadow-sm transition-all duration-300 hover:shadow-xl hover:shadow-navy-900/10 hover:-translate-y-1">
+          <div class="w-14 h-14 rounded-xl bg-navy-900 text-white flex items-center justify-center mb-5 group-hover:bg-accent-500 transition-colors">
+            <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6v12M8 6v12M12 6v8M12 17.99V18M16 6v8M16 17.99V18M20 6v12" /></svg>
           </div>
-          <h3 class="text-xl font-bold mb-2 group-hover:text-green-700 transition-colors">Stickers & labels</h3>
-          <p class="text-gray-600 text-sm">
+          <h3 class="text-xl font-extrabold tracking-tight mb-2">Barcodes &amp; QR codes</h3>
+          <p class="text-gray-600 text-sm leading-relaxed mb-5">
+            EAN, QR and GS1-128 codes plus variable data labels — serial numbering and unique codes from your PDF file.
+          </p>
+          <span class="inline-flex items-center gap-1.5 text-sm font-bold text-navy-700 group-hover:text-accent-600 transition-colors">
+            See details
+            <svg class="w-4 h-4 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
+          </span>
+        </a>
+
+        <a href="/en/uslugi/" class="group bg-white rounded-2xl border border-navy-100 p-6 shadow-sm transition-all duration-300 hover:shadow-xl hover:shadow-navy-900/10 hover:-translate-y-1">
+          <div class="w-14 h-14 rounded-xl bg-navy-900 text-white flex items-center justify-center mb-5 group-hover:bg-accent-500 transition-colors">
+            <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l7 7a2 2 0 010 2.828l-7 7a2 2 0 01-2.828 0l-7-7A2 2 0 013 12V7a4 4 0 014-4z" /></svg>
+          </div>
+          <h3 class="text-xl font-extrabold tracking-tight mb-2">Stickers &amp; labels</h3>
+          <p class="text-gray-600 text-sm leading-relaxed mb-5">
             Self-adhesive labels, product stickers, barcodes. Printing on paper, foil, and specialty materials.
           </p>
+          <span class="inline-flex items-center gap-1.5 text-sm font-bold text-navy-700 group-hover:text-accent-600 transition-colors">
+            See details
+            <svg class="w-4 h-4 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
+          </span>
         </a>
 
-        <a href="/en/uslugi/" class="group bg-white rounded-xl shadow-md hover:shadow-lg transition-shadow p-8 text-center">
-          <div class="w-16 h-16 bg-orange-100 text-orange-700 rounded-full flex items-center justify-center mx-auto mb-4">
-            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z" /></svg>
+        <a href="/en/uslugi/" class="group bg-white rounded-2xl border border-navy-100 p-6 shadow-sm transition-all duration-300 hover:shadow-xl hover:shadow-navy-900/10 hover:-translate-y-1">
+          <div class="w-14 h-14 rounded-xl bg-navy-900 text-white flex items-center justify-center mb-5 group-hover:bg-accent-500 transition-colors">
+            <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z" /></svg>
           </div>
-          <h3 class="text-xl font-bold mb-2 group-hover:text-orange-700 transition-colors">Digital printing</h3>
-          <p class="text-gray-600 text-sm">
+          <h3 class="text-xl font-extrabold tracking-tight mb-2">Digital printing</h3>
+          <p class="text-gray-600 text-sm leading-relaxed mb-5">
             Business cards, flyers, posters, brochures, letterheads. Even small runs. Express 24-48h.
           </p>
+          <span class="inline-flex items-center gap-1.5 text-sm font-bold text-navy-700 group-hover:text-accent-600 transition-colors">
+            See details
+            <svg class="w-4 h-4 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
+          </span>
         </a>
 
       </div>
+
+      <p class="mt-12 text-center font-mono text-[11px] font-bold uppercase tracking-[0.25em] text-gray-400">
+        We print for FMCG: <span class="text-navy-500">Dairy · Beverages · Confectionery · Preserves · Coffee &amp; tea · Cosmetics</span>
+      </p>
     </div>
   </section>
 
   <!-- Why us -->
-  <section class="py-16 md:py-24 bg-blue-900 text-white">
-    <div class="max-w-6xl mx-auto px-4">
-      <h2 class="text-2xl md:text-4xl font-bold text-center mb-12">Why WIPP?</h2>
-      <div class="grid sm:grid-cols-2 md:grid-cols-4 gap-8 text-center">
-        <div>
-          <div class="text-4xl font-extrabold text-blue-300 mb-2">25+</div>
-          <p class="text-blue-100">Years in the printing industry</p>
+  <section class="relative overflow-hidden bg-navy-950 text-white py-16 md:py-24">
+    <div class="absolute inset-0 bg-grid-dark" aria-hidden="true"></div>
+    <div class="absolute -top-32 left-1/3 w-[35rem] h-[25rem] bg-accent-500/10 rounded-full blur-3xl" aria-hidden="true"></div>
+    <div class="relative max-w-6xl mx-auto px-4">
+      <div class="text-center mb-12">
+        <p class="eyebrow text-accent-400 mb-3">Trust</p>
+        <h2 class="text-3xl md:text-4xl font-extrabold tracking-tight">Why WIPP?</h2>
+      </div>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-px bg-white/10 rounded-2xl overflow-hidden border border-white/10">
+        <div class="bg-navy-950/90 p-8 text-center">
+          <div class="font-mono text-4xl md:text-5xl font-bold text-accent-400 mb-3">25+</div>
+          <p class="text-navy-200 text-sm">Years in the printing industry</p>
         </div>
-        <div>
-          <div class="text-4xl font-extrabold text-blue-300 mb-2">10000+</div>
-          <p class="text-blue-100">Orders fulfilled</p>
+        <div class="bg-navy-950/90 p-8 text-center">
+          <div class="font-mono text-4xl md:text-5xl font-bold text-accent-400 mb-3">10000+</div>
+          <p class="text-navy-200 text-sm">Orders fulfilled</p>
         </div>
-        <div>
-          <div class="text-4xl font-extrabold text-blue-300 mb-2">24-48h</div>
-          <p class="text-blue-100">Express turnaround</p>
+        <div class="bg-navy-950/90 p-8 text-center">
+          <div class="font-mono text-4xl md:text-5xl font-bold text-accent-400 mb-3">24–48h</div>
+          <p class="text-navy-200 text-sm">Express turnaround</p>
         </div>
-        <div>
-          <div class="text-4xl font-extrabold text-blue-300 mb-2">Unique</div>
-          <p class="text-blue-100">Specialty in non-standard orders</p>
+        <div class="bg-navy-950/90 p-8 text-center">
+          <div class="font-mono text-4xl md:text-5xl font-bold text-accent-400 mb-3">100%</div>
+          <p class="text-navy-200 text-sm">Unique codes — every label different</p>
         </div>
       </div>
     </div>
   </section>
 
   <!-- CTA -->
-  <section class="py-16 md:py-20 bg-gray-50">
-    <div class="max-w-3xl mx-auto px-4 text-center">
-      <h2 class="text-2xl md:text-3xl font-bold mb-4">Need Data Matrix code printing?</h2>
-      <p class="text-gray-600 mb-8 text-lg">
-        Contact us — we'll prepare a quote and fulfill your order quickly and on time.
-      </p>
-      <div class="flex flex-col sm:flex-row gap-4 justify-center">
-        <a href="/en/kontakt/" class="bg-blue-700 text-white font-bold px-8 py-3 rounded-lg hover:bg-blue-800 transition-colors text-lg">
-          Send inquiry
-        </a>
-        <a href="tel:+48604286423" class="border-2 border-blue-700 text-blue-700 font-bold px-8 py-3 rounded-lg hover:bg-blue-50 transition-colors text-lg">
-          Call: 604 286 423
-        </a>
-      </div>
-    </div>
-  </section>
+  <CtaBanner
+    title="Need Data Matrix code printing?"
+    text="Contact us — we'll prepare a quote and fulfill your order quickly and on time."
+    primaryHref="/en/kontakt/"
+    primaryLabel="Send inquiry"
+    secondaryHref="tel:+48604286423"
+    secondaryLabel="Call: 604 286 423"
+  />
 
 </Base>

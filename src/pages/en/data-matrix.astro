@@ -1,5 +1,7 @@
 ---
 import Base from '../../layouts/Base.astro';
+import PageHero from '../../components/PageHero.astro';
+import CtaBanner from '../../components/CtaBanner.astro';
 
 const faqItems = [
   {
@@ -40,6 +42,33 @@ const faqSchema = {
     }
   }))
 };
+
+const challenges = [
+  {
+    title: "Each label is unique",
+    html: `Unlike standard printing where all stickers are identical,
+      <strong>each individual product unit</strong> must have its own unique Data Matrix code.
+      Example: a bulk package of 30 candy bars requires 30 different stickers + 1 aggregation code on the box.`
+  },
+  {
+    title: "Variable Data Printing",
+    html: `Each label contains different data — this requires specialized software and printing equipment
+      adapted for high-speed, high-precision variable data printing. An error in a single code means
+      rejection of the entire batch.`
+  },
+  {
+    title: "Code aggregation and hierarchy",
+    html: `The system requires not only unit-level codes, but also <strong>aggregation codes</strong>
+      on bulk packages and pallets. The entire hierarchy must be consistent and registered.`
+  }
+];
+
+const offers = [
+  { title: "Printing supplied codes", desc: "The client provides us with files containing unique Data Matrix codes, and we print them on stickers in the required order and layout." },
+  { title: "Aggregation codes", desc: "Labels for bulk packages and pallets with codes linking individual units into a hierarchy." },
+  { title: "High volume, fast turnaround", desc: "We handle large volumes of variable data printing with short turnaround times." },
+  { title: "Experience since 1997", desc: "Over 25 years in the printing industry. We know how to print precisely and reliably." }
+];
 ---
 
 <Base
@@ -49,108 +78,70 @@ const faqSchema = {
   schema={faqSchema}
 >
 
-  <!-- Hero -->
-  <section class="pt-24 pb-12 md:pt-32 md:pb-16 bg-gradient-to-br from-blue-800 to-blue-950 text-white">
-    <div class="max-w-4xl mx-auto px-4 text-center">
-      <h1 class="text-3xl md:text-5xl font-extrabold leading-tight mb-6">
-        Data Matrix code printing<br />
-        <span class="text-blue-300">Unique labels for every product</span>
-      </h1>
-      <p class="text-lg text-blue-100 max-w-2xl mx-auto">
-        We specialize in printing unique Data Matrix codes on stickers — each product unit receives an individual code.
-      </p>
-    </div>
-  </section>
+  <PageHero
+    eyebrow="Our specialty"
+    title="Data Matrix code printing"
+    highlight="Unique labels for every product"
+    subtitle="We specialize in printing unique Data Matrix codes on stickers — each product unit receives an individual code."
+  />
 
   <!-- Why it's hard -->
-  <section class="py-16 md:py-20 bg-gray-50">
+  <section class="py-16 md:py-24 bg-navy-50/60">
     <div class="max-w-4xl mx-auto px-4">
-      <h2 class="text-2xl md:text-3xl font-bold mb-6">Why does Data Matrix code printing require a specialist?</h2>
-      <div class="space-y-6">
-        <div class="bg-white rounded-xl p-6 shadow-sm">
-          <h3 class="text-lg font-bold text-blue-800 mb-2">Each label is unique</h3>
-          <p class="text-gray-600">
-            Unlike standard printing where all stickers are identical,
-            <strong>each individual product unit</strong> must have its own unique Data Matrix code.
-            Example: a bulk package of 30 candy bars requires 30 different stickers + 1 aggregation code on the box.
-          </p>
-        </div>
-        <div class="bg-white rounded-xl p-6 shadow-sm">
-          <h3 class="text-lg font-bold text-blue-800 mb-2">Variable Data Printing</h3>
-          <p class="text-gray-600">
-            Each label contains different data — this requires specialized software and printing equipment
-            adapted for high-speed, high-precision variable data printing. An error in a single code means
-            rejection of the entire batch.
-          </p>
-        </div>
-        <div class="bg-white rounded-xl p-6 shadow-sm">
-          <h3 class="text-lg font-bold text-blue-800 mb-2">Code aggregation and hierarchy</h3>
-          <p class="text-gray-600">
-            The system requires not only unit-level codes, but also <strong>aggregation codes</strong>
-            on bulk packages and pallets. The entire hierarchy must be consistent and registered.
-          </p>
-        </div>
+      <h2 class="text-2xl md:text-3xl font-extrabold tracking-tight mb-8">Why does Data Matrix code printing require a specialist?</h2>
+      <div class="space-y-5">
+        {challenges.map((c, i) => (
+          <div class="bg-white rounded-2xl border border-navy-100 p-6 md:p-8 shadow-sm">
+            <div class="flex items-start gap-5">
+              <span class="shrink-0 font-mono text-sm font-bold text-accent-600 bg-accent-500/10 rounded-lg px-3 py-2">{String(i + 1).padStart(2, '0')}</span>
+              <div>
+                <h3 class="text-lg font-extrabold tracking-tight text-navy-900 mb-2">{c.title}</h3>
+                <p class="text-gray-600 leading-relaxed" set:html={c.html} />
+              </div>
+            </div>
+          </div>
+        ))}
       </div>
     </div>
   </section>
 
   <!-- What we deliver -->
-  <section class="py-16 md:py-20">
+  <section class="py-16 md:py-24">
     <div class="max-w-4xl mx-auto px-4">
-      <h2 class="text-2xl md:text-3xl font-bold mb-8">What do we offer?</h2>
-      <div class="grid md:grid-cols-2 gap-6">
-        <div class="flex gap-4">
-          <div class="flex-shrink-0 w-12 h-12 bg-blue-100 text-blue-700 rounded-lg flex items-center justify-center">
-            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
+      <h2 class="text-2xl md:text-3xl font-extrabold tracking-tight mb-10">What do we offer?</h2>
+      <div class="grid md:grid-cols-2 gap-x-8 gap-y-8">
+        {offers.map(o => (
+          <div class="flex gap-4">
+            <div class="shrink-0 w-11 h-11 bg-navy-900 text-white rounded-xl flex items-center justify-center">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7" /></svg>
+            </div>
+            <div>
+              <h3 class="font-extrabold tracking-tight text-navy-900 mb-1.5">{o.title}</h3>
+              <p class="text-gray-600 text-sm leading-relaxed">{o.desc}</p>
+            </div>
           </div>
-          <div>
-            <h3 class="font-bold mb-1">Printing supplied codes</h3>
-            <p class="text-gray-600 text-sm">The client provides us with files containing unique Data Matrix codes, and we print them on stickers in the required order and layout.</p>
-          </div>
-        </div>
-        <div class="flex gap-4">
-          <div class="flex-shrink-0 w-12 h-12 bg-blue-100 text-blue-700 rounded-lg flex items-center justify-center">
-            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
-          </div>
-          <div>
-            <h3 class="font-bold mb-1">Aggregation codes</h3>
-            <p class="text-gray-600 text-sm">Labels for bulk packages and pallets with codes linking individual units into a hierarchy.</p>
-          </div>
-        </div>
-        <div class="flex gap-4">
-          <div class="flex-shrink-0 w-12 h-12 bg-blue-100 text-blue-700 rounded-lg flex items-center justify-center">
-            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
-          </div>
-          <div>
-            <h3 class="font-bold mb-1">High volume, fast turnaround</h3>
-            <p class="text-gray-600 text-sm">We handle large volumes of variable data printing with short turnaround times.</p>
-          </div>
-        </div>
-        <div class="flex gap-4">
-          <div class="flex-shrink-0 w-12 h-12 bg-blue-100 text-blue-700 rounded-lg flex items-center justify-center">
-            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
-          </div>
-          <div>
-            <h3 class="font-bold mb-1">Experience since 1997</h3>
-            <p class="text-gray-600 text-sm">Over 25 years in the printing industry. We know how to print precisely and reliably.</p>
-          </div>
-        </div>
+        ))}
       </div>
     </div>
   </section>
 
   <!-- FAQ -->
-  <section class="py-16 md:py-20">
+  <section class="py-16 md:py-24 bg-navy-50/60">
     <div class="max-w-4xl mx-auto px-4">
-      <h2 class="text-2xl md:text-3xl font-bold mb-8 text-center">Frequently asked questions about Data Matrix codes</h2>
+      <div class="text-center mb-10">
+        <p class="eyebrow text-accent-600 mb-3">FAQ</p>
+        <h2 class="text-2xl md:text-3xl font-extrabold tracking-tight">Frequently asked questions about Data Matrix codes</h2>
+      </div>
       <div class="space-y-4">
         {faqItems.map(item => (
-          <details class="group bg-gray-50 rounded-xl">
-            <summary class="cursor-pointer px-6 py-4 font-semibold text-gray-800 flex justify-between items-center">
+          <details class="group bg-white rounded-2xl border border-navy-100 shadow-sm open:shadow-md transition-shadow">
+            <summary class="flex items-center justify-between gap-4 cursor-pointer list-none px-6 py-5 font-bold text-navy-950 hover:text-navy-700 transition-colors">
               {item.question}
-              <svg class="w-5 h-5 text-gray-400 group-open:rotate-180 transition-transform flex-shrink-0 ml-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
+              <span class="shrink-0 w-8 h-8 rounded-full border border-navy-200 flex items-center justify-center text-navy-500 transition-all duration-200 group-open:rotate-45 group-open:bg-navy-900 group-open:border-navy-900 group-open:text-white">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" /></svg>
+              </span>
             </summary>
-            <div class="px-6 pb-4 text-gray-600 whitespace-pre-line">
+            <div class="px-6 pb-6 text-gray-600 leading-relaxed whitespace-pre-line">
               {item.answer}
             </div>
           </details>
@@ -160,21 +151,13 @@ const faqSchema = {
   </section>
 
   <!-- CTA -->
-  <section class="py-16 md:py-20 bg-gray-50">
-    <div class="max-w-3xl mx-auto px-4 text-center">
-      <h2 class="text-2xl md:text-3xl font-bold mb-4">Need Data Matrix code printing?</h2>
-      <p class="text-gray-600 mb-8">
-        Contact us — we'll quote your order and advise on requirements.
-      </p>
-      <div class="flex flex-col sm:flex-row gap-4 justify-center">
-        <a href="/en/kontakt/" class="bg-blue-700 text-white font-bold px-8 py-3 rounded-lg hover:bg-blue-800 transition-colors">
-          Send inquiry
-        </a>
-        <a href="tel:+48604286423" class="border-2 border-blue-700 text-blue-700 font-bold px-8 py-3 rounded-lg hover:bg-blue-50 transition-colors">
-          Call: 604 286 423
-        </a>
-      </div>
-    </div>
-  </section>
+  <CtaBanner
+    title="Need Data Matrix code printing?"
+    text="Contact us — we'll quote your order and advise on requirements."
+    primaryHref="/en/kontakt/"
+    primaryLabel="Send inquiry"
+    secondaryHref="tel:+48604286423"
+    secondaryLabel="Call: 604 286 423"
+  />
 
 </Base>

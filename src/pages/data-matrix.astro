@@ -1,5 +1,7 @@
 ---
 import Base from '../layouts/Base.astro';
+import PageHero from '../components/PageHero.astro';
+import CtaBanner from '../components/CtaBanner.astro';
 
 const faqItems = [
   {
@@ -40,6 +42,33 @@ const faqSchema = {
     }
   }))
 };
+
+const challenges = [
+  {
+    title: "Każda etykieta jest unikalna",
+    html: `W odróżnieniu od zwykłego druku, gdzie wszystkie naklejki są identyczne,
+      <strong>każda pojedyncza sztuka produktu</strong> musi mieć swój własny, niepowtarzalny kod Data Matrix.
+      Przykład: opakowanie zbiorcze 30 batonów wymaga wydrukowania 30 różnych naklejek + 1 kodu agregacji na kartonie.`
+  },
+  {
+    title: "Druk danych zmiennych (Variable Data Printing)",
+    html: `Każda etykieta zawiera inne dane — wymaga to specjalistycznego oprogramowania i maszyn drukarskich
+      przystosowanych do druku danych zmiennych z wysoką prędkością i precyzją. Błąd w jednym kodzie oznacza
+      odrzucenie całej partii.`
+  },
+  {
+    title: "Agregacja i hierarchia kodów",
+    html: `System wymaga nie tylko kodów na poziomie jednostkowym, ale również <strong>kodów agregacji</strong>
+      na opakowaniach zbiorczych i paletach. Cała hierarchia musi być spójna i zarejestrowana w systemie.`
+  }
+];
+
+const offers = [
+  { title: "Druk dostarczonych kodów", desc: "Klient dostarcza nam pliki z unikalnymi kodami Data Matrix, a my drukujemy je na naklejkach w wymaganej kolejności i układzie." },
+  { title: "Kody agregacji", desc: "Etykiety na opakowania zbiorcze i palety z kodami łączącymi jednostki w hierarchię." },
+  { title: "Wysoki nakład, szybka realizacja", desc: "Obsługujemy duże wolumeny druku danych zmiennych z krótkim czasem realizacji." },
+  { title: "Doświadczenie od 1997 roku", desc: "Ponad 25 lat w branży poligraficznej. Wiemy, jak drukować precyzyjnie i niezawodnie." }
+];
 ---
 
 <Base
@@ -48,108 +77,70 @@ const faqSchema = {
   schema={faqSchema}
 >
 
-  <!-- Hero -->
-  <section class="pt-24 pb-12 md:pt-32 md:pb-16 bg-gradient-to-br from-blue-800 to-blue-950 text-white">
-    <div class="max-w-4xl mx-auto px-4 text-center">
-      <h1 class="text-3xl md:text-5xl font-extrabold leading-tight mb-6">
-        Druk kodów Data Matrix<br />
-        <span class="text-blue-300">Unikalne etykiety dla każdego produktu</span>
-      </h1>
-      <p class="text-lg text-blue-100 max-w-2xl mx-auto">
-        Specjalizujemy się w druku unikalnych kodów Data Matrix na naklejkach — każda sztuka produktu otrzymuje indywidualny kod.
-      </p>
-    </div>
-  </section>
+  <PageHero
+    eyebrow="Nasza specjalizacja"
+    title="Druk kodów Data Matrix"
+    highlight="Unikalne etykiety dla każdego produktu"
+    subtitle="Specjalizujemy się w druku unikalnych kodów Data Matrix na naklejkach — każda sztuka produktu otrzymuje indywidualny kod."
+  />
 
   <!-- Why it's hard -->
-  <section class="py-16 md:py-20 bg-gray-50">
+  <section class="py-16 md:py-24 bg-navy-50/60">
     <div class="max-w-4xl mx-auto px-4">
-      <h2 class="text-2xl md:text-3xl font-bold mb-6">Dlaczego druk kodów Data Matrix wymaga specjalisty?</h2>
-      <div class="space-y-6">
-        <div class="bg-white rounded-xl p-6 shadow-sm">
-          <h3 class="text-lg font-bold text-blue-800 mb-2">Każda etykieta jest unikalna</h3>
-          <p class="text-gray-600">
-            W odróżnieniu od zwykłego druku, gdzie wszystkie naklejki są identyczne,
-            <strong>każda pojedyncza sztuka produktu</strong> musi mieć swój własny, niepowtarzalny kod Data Matrix.
-            Przykład: opakowanie zbiorcze 30 batonów wymaga wydrukowania 30 różnych naklejek + 1 kodu agregacji na kartonie.
-          </p>
-        </div>
-        <div class="bg-white rounded-xl p-6 shadow-sm">
-          <h3 class="text-lg font-bold text-blue-800 mb-2">Druk danych zmiennych (Variable Data Printing)</h3>
-          <p class="text-gray-600">
-            Każda etykieta zawiera inne dane — wymaga to specjalistycznego oprogramowania i maszyn drukarskich
-            przystosowanych do druku danych zmiennych z wysoką prędkością i precyzją. Błąd w jednym kodzie oznacza
-            odrzucenie całej partii.
-          </p>
-        </div>
-        <div class="bg-white rounded-xl p-6 shadow-sm">
-          <h3 class="text-lg font-bold text-blue-800 mb-2">Agregacja i hierarchia kodów</h3>
-          <p class="text-gray-600">
-            System wymaga nie tylko kodów na poziomie jednostkowym, ale również <strong>kodów agregacji</strong>
-            na opakowaniach zbiorczych i paletach. Cała hierarchia musi być spójna i zarejestrowana w systemie.
-          </p>
-        </div>
+      <h2 class="text-2xl md:text-3xl font-extrabold tracking-tight mb-8">Dlaczego druk kodów Data Matrix wymaga specjalisty?</h2>
+      <div class="space-y-5">
+        {challenges.map((c, i) => (
+          <div class="bg-white rounded-2xl border border-navy-100 p-6 md:p-8 shadow-sm">
+            <div class="flex items-start gap-5">
+              <span class="shrink-0 font-mono text-sm font-bold text-accent-600 bg-accent-500/10 rounded-lg px-3 py-2">{String(i + 1).padStart(2, '0')}</span>
+              <div>
+                <h3 class="text-lg font-extrabold tracking-tight text-navy-900 mb-2">{c.title}</h3>
+                <p class="text-gray-600 leading-relaxed" set:html={c.html} />
+              </div>
+            </div>
+          </div>
+        ))}
       </div>
     </div>
   </section>
 
   <!-- What we deliver -->
-  <section class="py-16 md:py-20">
+  <section class="py-16 md:py-24">
     <div class="max-w-4xl mx-auto px-4">
-      <h2 class="text-2xl md:text-3xl font-bold mb-8">Co oferujemy?</h2>
-      <div class="grid md:grid-cols-2 gap-6">
-        <div class="flex gap-4">
-          <div class="flex-shrink-0 w-12 h-12 bg-blue-100 text-blue-700 rounded-lg flex items-center justify-center">
-            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
+      <h2 class="text-2xl md:text-3xl font-extrabold tracking-tight mb-10">Co oferujemy?</h2>
+      <div class="grid md:grid-cols-2 gap-x-8 gap-y-8">
+        {offers.map(o => (
+          <div class="flex gap-4">
+            <div class="shrink-0 w-11 h-11 bg-navy-900 text-white rounded-xl flex items-center justify-center">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7" /></svg>
+            </div>
+            <div>
+              <h3 class="font-extrabold tracking-tight text-navy-900 mb-1.5">{o.title}</h3>
+              <p class="text-gray-600 text-sm leading-relaxed">{o.desc}</p>
+            </div>
           </div>
-          <div>
-            <h3 class="font-bold mb-1">Druk dostarczonych kodów</h3>
-            <p class="text-gray-600 text-sm">Klient dostarcza nam pliki z unikalnymi kodami Data Matrix, a my drukujemy je na naklejkach w wymaganej kolejności i układzie.</p>
-          </div>
-        </div>
-        <div class="flex gap-4">
-          <div class="flex-shrink-0 w-12 h-12 bg-blue-100 text-blue-700 rounded-lg flex items-center justify-center">
-            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
-          </div>
-          <div>
-            <h3 class="font-bold mb-1">Kody agregacji</h3>
-            <p class="text-gray-600 text-sm">Etykiety na opakowania zbiorcze i palety z kodami łączącymi jednostki w hierarchię.</p>
-          </div>
-        </div>
-        <div class="flex gap-4">
-          <div class="flex-shrink-0 w-12 h-12 bg-blue-100 text-blue-700 rounded-lg flex items-center justify-center">
-            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
-          </div>
-          <div>
-            <h3 class="font-bold mb-1">Wysoki nakład, szybka realizacja</h3>
-            <p class="text-gray-600 text-sm">Obsługujemy duże wolumeny druku danych zmiennych z krótkim czasem realizacji.</p>
-          </div>
-        </div>
-        <div class="flex gap-4">
-          <div class="flex-shrink-0 w-12 h-12 bg-blue-100 text-blue-700 rounded-lg flex items-center justify-center">
-            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
-          </div>
-          <div>
-            <h3 class="font-bold mb-1">Doświadczenie od 1997 roku</h3>
-            <p class="text-gray-600 text-sm">Ponad 25 lat w branży poligraficznej. Wiemy, jak drukować precyzyjnie i niezawodnie.</p>
-          </div>
-        </div>
+        ))}
       </div>
     </div>
   </section>
 
   <!-- FAQ -->
-  <section class="py-16 md:py-20">
+  <section class="py-16 md:py-24 bg-navy-50/60">
     <div class="max-w-4xl mx-auto px-4">
-      <h2 class="text-2xl md:text-3xl font-bold mb-8 text-center">Najczęstsze pytania o kody Data Matrix</h2>
+      <div class="text-center mb-10">
+        <p class="eyebrow text-accent-600 mb-3">FAQ</p>
+        <h2 class="text-2xl md:text-3xl font-extrabold tracking-tight">Najczęstsze pytania o kody Data Matrix</h2>
+      </div>
       <div class="space-y-4">
         {faqItems.map(item => (
-          <details class="group bg-gray-50 rounded-xl">
-            <summary class="cursor-pointer px-6 py-4 font-semibold text-gray-800 flex justify-between items-center">
+          <details class="group bg-white rounded-2xl border border-navy-100 shadow-sm open:shadow-md transition-shadow">
+            <summary class="flex items-center justify-between gap-4 cursor-pointer list-none px-6 py-5 font-bold text-navy-950 hover:text-navy-700 transition-colors">
               {item.question}
-              <svg class="w-5 h-5 text-gray-400 group-open:rotate-180 transition-transform flex-shrink-0 ml-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
+              <span class="shrink-0 w-8 h-8 rounded-full border border-navy-200 flex items-center justify-center text-navy-500 transition-all duration-200 group-open:rotate-45 group-open:bg-navy-900 group-open:border-navy-900 group-open:text-white">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" /></svg>
+              </span>
             </summary>
-            <div class="px-6 pb-4 text-gray-600 whitespace-pre-line">
+            <div class="px-6 pb-6 text-gray-600 leading-relaxed whitespace-pre-line">
               {item.answer}
             </div>
           </details>
@@ -159,21 +150,13 @@ const faqSchema = {
   </section>
 
   <!-- CTA -->
-  <section class="py-16 md:py-20 bg-gray-50">
-    <div class="max-w-3xl mx-auto px-4 text-center">
-      <h2 class="text-2xl md:text-3xl font-bold mb-4">Potrzebujesz druku kodów Data Matrix?</h2>
-      <p class="text-gray-600 mb-8">
-        Skontaktuj się z nami — wycenimy Twoje zamówienie i doradzimy w kwestii wymagań.
-      </p>
-      <div class="flex flex-col sm:flex-row gap-4 justify-center">
-        <a href="/kontakt/" class="bg-blue-700 text-white font-bold px-8 py-3 rounded-lg hover:bg-blue-800 transition-colors">
-          Wyślij zapytanie
-        </a>
-        <a href="tel:+48604286423" class="border-2 border-blue-700 text-blue-700 font-bold px-8 py-3 rounded-lg hover:bg-blue-50 transition-colors">
-          Zadzwoń: 604 286 423
-        </a>
-      </div>
-    </div>
-  </section>
+  <CtaBanner
+    title="Potrzebujesz druku kodów Data Matrix?"
+    text="Skontaktuj się z nami — wycenimy Twoje zamówienie i doradzimy w kwestii wymagań."
+    primaryHref="/kontakt/"
+    primaryLabel="Wyślij zapytanie"
+    secondaryHref="tel:+48604286423"
+    secondaryLabel="Zadzwoń: 604 286 423"
+  />
 
 </Base>

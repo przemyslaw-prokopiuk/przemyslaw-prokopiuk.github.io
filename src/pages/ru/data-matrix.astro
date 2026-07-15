@@ -1,5 +1,7 @@
 ---
 import Base from '../../layouts/Base.astro';
+import PageHero from '../../components/PageHero.astro';
+import CtaBanner from '../../components/CtaBanner.astro';
 
 const faqItems = [
   {
@@ -23,6 +25,10 @@ const faqItems = [
     answer: "Процесс прост:\n1) Вы отправляете нам файл с уникальными кодами Data Matrix.\n2) Мы подготавливаем макет этикеток в соответствии с требованиями системы.\n3) Печатаем наклейки с индивидуальными кодами в требуемом порядке.\n4) Доставляем готовые этикетки — каждая с уникальным кодом, готовая к нанесению на продукт."
   },
   {
+    question: "Печатаете ли вы этикетки для системы «Честный знак»?",
+    answer: "Да. Печатаем предоставленные коды маркировки Data Matrix, в том числе коды системы «Честный знак» для экспортёров на рынки ЕАЭС (Россия, Беларусь, Казахстан). Вы выгружаете файл с кодами маркировки из личного кабинета системы, а мы печатаем этикетки в требуемом порядке — как единичные, так и агрегационные."
+  },
+  {
     question: "Сколько стоит печать кодов Data Matrix?",
     answer: "Цена зависит от тиража, размера этикеток и материала. Свяжитесь с нами по телефону (604 286 423) или по электронной почте — мы подготовим индивидуальный расчёт в течение 24-48 часов."
   }
@@ -40,6 +46,33 @@ const faqSchema = {
     }
   }))
 };
+
+const challenges = [
+  {
+    title: "Каждая этикетка уникальна",
+    html: `В отличие от обычной печати, где все наклейки одинаковы,
+      <strong>каждая отдельная единица продукции</strong> должна иметь собственный уникальный код Data Matrix.
+      Пример: групповая упаковка из 30 батончиков требует 30 разных наклеек + 1 код агрегации на коробке.`
+  },
+  {
+    title: "Печать переменных данных (Variable Data Printing)",
+    html: `Каждая этикетка содержит разные данные — это требует специализированного программного обеспечения
+      и печатного оборудования, приспособленного для печати переменных данных с высокой скоростью и точностью.
+      Ошибка в одном коде означает отбраковку всей партии.`
+  },
+  {
+    title: "Агрегация и иерархия кодов",
+    html: `Система требует не только кодов на уровне единицы, но и <strong>кодов агрегации</strong>
+      на групповых упаковках и палетах. Вся иерархия должна быть согласованной и зарегистрированной.`
+  }
+];
+
+const offers = [
+  { title: "Печать предоставленных кодов", desc: "Клиент предоставляет нам файлы с уникальными кодами Data Matrix, а мы печатаем их на наклейках в требуемом порядке и расположении." },
+  { title: "Коды агрегации", desc: "Этикетки для групповых упаковок и палет с кодами, связывающими единицы в иерархию." },
+  { title: "Большие тиражи, быстрое выполнение", desc: "Обслуживаем большие объёмы печати переменных данных с коротким сроком выполнения." },
+  { title: "Опыт с 1997 года", desc: "Более 25 лет в полиграфической отрасли. Мы знаем, как печатать точно и надёжно." }
+];
 ---
 
 <Base
@@ -49,108 +82,70 @@ const faqSchema = {
   schema={faqSchema}
 >
 
-  <!-- Hero -->
-  <section class="pt-24 pb-12 md:pt-32 md:pb-16 bg-gradient-to-br from-blue-800 to-blue-950 text-white">
-    <div class="max-w-4xl mx-auto px-4 text-center">
-      <h1 class="text-3xl md:text-5xl font-extrabold leading-tight mb-6">
-        Печать кодов Data Matrix<br />
-        <span class="text-blue-300">Уникальные этикетки для каждого продукта</span>
-      </h1>
-      <p class="text-lg text-blue-100 max-w-2xl mx-auto">
-        Специализируемся на печати уникальных кодов Data Matrix на наклейках — каждая единица продукции получает индивидуальный код.
-      </p>
-    </div>
-  </section>
+  <PageHero
+    eyebrow="Наша специализация"
+    title="Печать кодов Data Matrix"
+    highlight="Уникальные этикетки для каждого продукта"
+    subtitle="Специализируемся на печати уникальных кодов Data Matrix на наклейках — каждая единица продукции получает индивидуальный код."
+  />
 
   <!-- Why it's hard -->
-  <section class="py-16 md:py-20 bg-gray-50">
+  <section class="py-16 md:py-24 bg-navy-50/60">
     <div class="max-w-4xl mx-auto px-4">
-      <h2 class="text-2xl md:text-3xl font-bold mb-6">Почему печать кодов Data Matrix требует специалиста?</h2>
-      <div class="space-y-6">
-        <div class="bg-white rounded-xl p-6 shadow-sm">
-          <h3 class="text-lg font-bold text-blue-800 mb-2">Каждая этикетка уникальна</h3>
-          <p class="text-gray-600">
-            В отличие от обычной печати, где все наклейки одинаковы,
-            <strong>каждая отдельная единица продукции</strong> должна иметь собственный уникальный код Data Matrix.
-            Пример: групповая упаковка из 30 батончиков требует 30 разных наклеек + 1 код агрегации на коробке.
-          </p>
-        </div>
-        <div class="bg-white rounded-xl p-6 shadow-sm">
-          <h3 class="text-lg font-bold text-blue-800 mb-2">Печать переменных данных (Variable Data Printing)</h3>
-          <p class="text-gray-600">
-            Каждая этикетка содержит разные данные — это требует специализированного программного обеспечения
-            и печатного оборудования, приспособленного для печати переменных данных с высокой скоростью и точностью.
-            Ошибка в одном коде означает отбраковку всей партии.
-          </p>
-        </div>
-        <div class="bg-white rounded-xl p-6 shadow-sm">
-          <h3 class="text-lg font-bold text-blue-800 mb-2">Агрегация и иерархия кодов</h3>
-          <p class="text-gray-600">
-            Система требует не только кодов на уровне единицы, но и <strong>кодов агрегации</strong>
-            на групповых упаковках и палетах. Вся иерархия должна быть согласованной и зарегистрированной.
-          </p>
-        </div>
+      <h2 class="text-2xl md:text-3xl font-extrabold tracking-tight mb-8">Почему печать кодов Data Matrix требует специалиста?</h2>
+      <div class="space-y-5">
+        {challenges.map((c, i) => (
+          <div class="bg-white rounded-2xl border border-navy-100 p-6 md:p-8 shadow-sm">
+            <div class="flex items-start gap-5">
+              <span class="shrink-0 font-mono text-sm font-bold text-accent-600 bg-accent-500/10 rounded-lg px-3 py-2">{String(i + 1).padStart(2, '0')}</span>
+              <div>
+                <h3 class="text-lg font-extrabold tracking-tight text-navy-900 mb-2">{c.title}</h3>
+                <p class="text-gray-600 leading-relaxed" set:html={c.html} />
+              </div>
+            </div>
+          </div>
+        ))}
       </div>
     </div>
   </section>
 
   <!-- What we deliver -->
-  <section class="py-16 md:py-20">
+  <section class="py-16 md:py-24">
     <div class="max-w-4xl mx-auto px-4">
-      <h2 class="text-2xl md:text-3xl font-bold mb-8">Что мы предлагаем?</h2>
-      <div class="grid md:grid-cols-2 gap-6">
-        <div class="flex gap-4">
-          <div class="flex-shrink-0 w-12 h-12 bg-blue-100 text-blue-700 rounded-lg flex items-center justify-center">
-            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
+      <h2 class="text-2xl md:text-3xl font-extrabold tracking-tight mb-10">Что мы предлагаем?</h2>
+      <div class="grid md:grid-cols-2 gap-x-8 gap-y-8">
+        {offers.map(o => (
+          <div class="flex gap-4">
+            <div class="shrink-0 w-11 h-11 bg-navy-900 text-white rounded-xl flex items-center justify-center">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7" /></svg>
+            </div>
+            <div>
+              <h3 class="font-extrabold tracking-tight text-navy-900 mb-1.5">{o.title}</h3>
+              <p class="text-gray-600 text-sm leading-relaxed">{o.desc}</p>
+            </div>
           </div>
-          <div>
-            <h3 class="font-bold mb-1">Печать предоставленных кодов</h3>
-            <p class="text-gray-600 text-sm">Клиент предоставляет нам файлы с уникальными кодами Data Matrix, а мы печатаем их на наклейках в требуемом порядке и расположении.</p>
-          </div>
-        </div>
-        <div class="flex gap-4">
-          <div class="flex-shrink-0 w-12 h-12 bg-blue-100 text-blue-700 rounded-lg flex items-center justify-center">
-            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
-          </div>
-          <div>
-            <h3 class="font-bold mb-1">Коды агрегации</h3>
-            <p class="text-gray-600 text-sm">Этикетки для групповых упаковок и палет с кодами, связывающими единицы в иерархию.</p>
-          </div>
-        </div>
-        <div class="flex gap-4">
-          <div class="flex-shrink-0 w-12 h-12 bg-blue-100 text-blue-700 rounded-lg flex items-center justify-center">
-            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
-          </div>
-          <div>
-            <h3 class="font-bold mb-1">Большие тиражи, быстрое выполнение</h3>
-            <p class="text-gray-600 text-sm">Обслуживаем большие объёмы печати переменных данных с коротким сроком выполнения.</p>
-          </div>
-        </div>
-        <div class="flex gap-4">
-          <div class="flex-shrink-0 w-12 h-12 bg-blue-100 text-blue-700 rounded-lg flex items-center justify-center">
-            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
-          </div>
-          <div>
-            <h3 class="font-bold mb-1">Опыт с 1997 года</h3>
-            <p class="text-gray-600 text-sm">Более 25 лет в полиграфической отрасли. Мы знаем, как печатать точно и надёжно.</p>
-          </div>
-        </div>
+        ))}
       </div>
     </div>
   </section>
 
   <!-- FAQ -->
-  <section class="py-16 md:py-20">
+  <section class="py-16 md:py-24 bg-navy-50/60">
     <div class="max-w-4xl mx-auto px-4">
-      <h2 class="text-2xl md:text-3xl font-bold mb-8 text-center">Часто задаваемые вопросы о кодах Data Matrix</h2>
+      <div class="text-center mb-10">
+        <p class="eyebrow text-accent-600 mb-3">FAQ</p>
+        <h2 class="text-2xl md:text-3xl font-extrabold tracking-tight">Часто задаваемые вопросы о кодах Data Matrix</h2>
+      </div>
       <div class="space-y-4">
         {faqItems.map(item => (
-          <details class="group bg-gray-50 rounded-xl">
-            <summary class="cursor-pointer px-6 py-4 font-semibold text-gray-800 flex justify-between items-center">
+          <details class="group bg-white rounded-2xl border border-navy-100 shadow-sm open:shadow-md transition-shadow">
+            <summary class="flex items-center justify-between gap-4 cursor-pointer list-none px-6 py-5 font-bold text-navy-950 hover:text-navy-700 transition-colors">
               {item.question}
-              <svg class="w-5 h-5 text-gray-400 group-open:rotate-180 transition-transform flex-shrink-0 ml-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
+              <span class="shrink-0 w-8 h-8 rounded-full border border-navy-200 flex items-center justify-center text-navy-500 transition-all duration-200 group-open:rotate-45 group-open:bg-navy-900 group-open:border-navy-900 group-open:text-white">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" /></svg>
+              </span>
             </summary>
-            <div class="px-6 pb-4 text-gray-600 whitespace-pre-line">
+            <div class="px-6 pb-6 text-gray-600 leading-relaxed whitespace-pre-line">
               {item.answer}
             </div>
           </details>
@@ -160,21 +155,13 @@ const faqSchema = {
   </section>
 
   <!-- CTA -->
-  <section class="py-16 md:py-20 bg-gray-50">
-    <div class="max-w-3xl mx-auto px-4 text-center">
-      <h2 class="text-2xl md:text-3xl font-bold mb-4">Нужна печать кодов Data Matrix?</h2>
-      <p class="text-gray-600 mb-8">
-        Свяжитесь с нами — рассчитаем стоимость вашего заказа и проконсультируем.
-      </p>
-      <div class="flex flex-col sm:flex-row gap-4 justify-center">
-        <a href="/ru/kontakt/" class="bg-blue-700 text-white font-bold px-8 py-3 rounded-lg hover:bg-blue-800 transition-colors">
-          Отправить запрос
-        </a>
-        <a href="tel:+48604286423" class="border-2 border-blue-700 text-blue-700 font-bold px-8 py-3 rounded-lg hover:bg-blue-50 transition-colors">
-          Позвонить: 604 286 423
-        </a>
-      </div>
-    </div>
-  </section>
+  <CtaBanner
+    title="Нужна печать кодов Data Matrix?"
+    text="Свяжитесь с нами — рассчитаем стоимость вашего заказа и проконсультируем."
+    primaryHref="/ru/kontakt/"
+    primaryLabel="Отправить запрос"
+    secondaryHref="tel:+48604286423"
+    secondaryLabel="Позвонить: 604 286 423"
+  />
 
 </Base>

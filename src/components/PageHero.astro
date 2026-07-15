@@ -1,0 +1,28 @@
+---
+import DataMatrix from './DataMatrix.astro';
+
+interface Props {
+  eyebrow?: string;
+  title: string;
+  highlight?: string;
+  subtitle?: string;
+}
+
+const { eyebrow, title, highlight, subtitle } = Astro.props;
+---
+
+<section class="relative overflow-hidden bg-navy-950 text-white pt-28 pb-14 md:pt-36 md:pb-20">
+  <div class="absolute inset-0 bg-grid-dark" aria-hidden="true"></div>
+  <div class="absolute -top-40 left-1/2 -translate-x-1/2 w-[50rem] h-[30rem] bg-accent-500/15 rounded-full blur-3xl" aria-hidden="true"></div>
+  <DataMatrix seed={19} class="absolute -right-12 -bottom-16 w-64 text-white/[0.05] rotate-12" />
+
+  <div class="relative max-w-4xl mx-auto px-4 text-center">
+    {eyebrow && <p class="eyebrow text-accent-400 mb-4">{eyebrow}</p>}
+    <h1 class="text-3xl md:text-5xl font-extrabold tracking-tight leading-tight mb-5">
+      {title}
+      {highlight && <><br /><span class="bg-gradient-to-r from-accent-300 to-accent-500 bg-clip-text text-transparent">{highlight}</span></>}
+    </h1>
+    {subtitle && <p class="text-lg text-navy-200 max-w-2xl mx-auto leading-relaxed">{subtitle}</p>}
+    <slot />
+  </div>
+</section>

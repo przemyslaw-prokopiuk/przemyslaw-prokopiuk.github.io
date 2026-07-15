@@ -1,0 +1,249 @@
+---
+import Base from '../../layouts/Base.astro';
+import PageHero from '../../components/PageHero.astro';
+import CtaBanner from '../../components/CtaBanner.astro';
+import CodeGenerator from '../../components/CodeGenerator.astro';
+
+const genLabels = {
+  eyebrow: "Бесплатный инструмент",
+  title: "Онлайн-генератор кодов",
+  intro: "Сгенерируйте и скачайте собственный QR-код, Data Matrix или штрих-код — бесплатно, без регистрации. Именно такое качество мы печатаем на этикетках.",
+  disclaimer: "Важно: это бесплатный демонстрационный инструмент. Как типография мы не генерируем коды на заказ — мы печатаем коды, предоставленные клиентом в файле PDF, напр. выданные системами маркировки продукции.",
+  typeLabel: "Тип кода",
+  types: { qr: "QR-код", dm: "Data Matrix", gs1: "GS1 Data Matrix", ean: "EAN-13", c128: "Code 128" },
+  textLabel: "Содержимое кода (ссылка, текст или цифры)",
+  placeholder: "напр. https://ваш-сайт.ru",
+  generate: "Сгенерировать код",
+  download: "Скачать PNG",
+  note: "QR-код читается камерой любого телефона. Data Matrix требует приложения со сканером 2D-кодов (напр. Google Lens) или промышленного считывателя — именно поэтому он является стандартом маркировки продукции. GS1 Data Matrix — это Data Matrix с содержимым по стандарту GS1: (01) GTIN + (21) серийный номер, именно такой формат используется в системах маркировки (в т.ч. «Честный знак»). Внимание: приложения систем маркировки проверяют только коды, выданные оператором системы — коды из генератора носят демонстрационный характер.",
+  previewHint: "Здесь появится ваш код",
+  errInvalid: "Не удалось сгенерировать код — проверьте содержимое.",
+  errEan: "EAN-13: введите 12 цифр (контрольную цифру рассчитаем автоматически) или 13 цифр с правильной контрольной цифрой — последняя цифра вычисляется из остальных.",
+};
+
+const codeTypes = [
+  {
+    title: 'Коды Data Matrix',
+    desc: 'Наша ведущая специализация — уникальные коды для систем маркировки продукции. Каждая единица товара с индивидуальным кодом.',
+    href: '/ru/data-matrix/',
+    linkLabel: 'Наша специализация',
+    featured: true,
+  },
+  {
+    title: 'Коды EAN-13 / EAN-8',
+    desc: 'Стандартные торговые штрих-коды для розничных товаров. Печать по стандарту GS1 — гарантированная считываемость на любой кассе и любым сканером.',
+  },
+  {
+    title: 'QR-коды',
+    desc: 'QR-коды со ссылками на сайты, меню, карточки товаров и акции. Статичные или с переменными данными — своя ссылка на каждой этикетке.',
+  },
+  {
+    title: 'GS1-128 / Code 128',
+    desc: 'Логистические коды для групповых упаковок и палет: номера партий, сроки годности, номера SSCC. Логистические этикетки по стандарту GS1.',
+  },
+  {
+    title: 'Серийная нумерация',
+    desc: 'Этикетки с последовательными номерами, уникальными промокодами или любым переменным текстом — из вашего файла PDF или с простой нумерацией, подготовленной нами.',
+  },
+  {
+    title: 'Гарантийные пломбы',
+    desc: 'Защитные этикетки с нумерацией — гарантийные пломбы, сервисные и инвентаризационные наклейки со штрих-кодом.',
+  },
+];
+
+const steps = [
+  {
+    title: 'Отправляете данные',
+    desc: 'Достаточно файла PDF с кодами или номерами. Нет файла? Простую серийную нумерацию подготовим за вас.',
+  },
+  {
+    title: 'Готовим макет',
+    desc: 'Разрабатываем макет этикетки, подбираем материал и проверяем считываемость кодов перед печатью.',
+  },
+  {
+    title: 'Печатаем и доставляем',
+    desc: 'Каждая этикетка с другим кодом, в согласованном порядке — готова к нанесению на продукт или упаковку.',
+  },
+];
+
+const faqItems = [
+  {
+    question: 'Какие виды штрих-кодов вы печатаете?',
+    answer: 'Печатаем все распространённые коды: EAN-8 и EAN-13, Code 128, GS1-128, ITF-14, QR-коды и коды Data Matrix. Подскажем, какой тип кода подойдёт для вашей задачи — торговой, логистической или производственной.',
+  },
+  {
+    question: 'Как подготовить файл с кодами для печати этикеток?',
+    answer: 'Лучше всего подходит файл PDF, в котором коды расположены в требуемом порядке. Отправьте нам файл — мы проверим его перед печатью и подскажем, если что-то нужно исправить.',
+  },
+  {
+    question: 'Печатаете ли вы этикетки с серийной нумерацией?',
+    answer: 'Да — этикетки с переменными данными это наша повседневная работа. Печатаем любые диапазоны нумерации, уникальные промокоды, инвентарные номера и гарантийные пломбы. Нумерацию можем сгенерировать сами или использовать ваш файл.',
+  },
+  {
+    question: 'На каких материалах вы печатаете коды?',
+    answer: 'На самоклеящейся бумаге, плёнке PP и PET (матовой или глянцевой), а также специальных материалах, устойчивых к влаге, истиранию и низким температурам. Подберём материал под условия использования этикетки.',
+  },
+  {
+    question: 'Что такое GS1 Sunrise 2027?',
+    answer: 'Sunrise 2027 — глобальная инициатива организации GS1: к концу 2027 года кассы и торговые системы по всему миру должны быть готовы к считыванию кодов 2D — GS1 Data Matrix и GS1 QR (Digital Link). Коды 2D вмещают гораздо больше данных, чем традиционный EAN: срок годности, номер партии, серийный номер или ссылку на страницу продукта. В Польше письма о намерениях уже подписали сети Biedronka, Żabka, Auchan и Carrefour.',
+  },
+  {
+    question: 'Нужно ли уже сейчас печатать коды 2D на этикетках?',
+    answer: 'В переходный период продукты могут иметь двойную маркировку: существующий код EAN и новый код 2D на одной этикетке. Производители, которые начнут раньше, избегут дорогостоящей замены этикеток в условиях дефицита времени. Мы уже сегодня печатаем этикетки с двойной маркировкой (EAN-13 + GS1 Data Matrix или GS1 QR) и посоветуем размещение кодов согласно рекомендациям GS1.',
+  },
+];
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": faqItems.map(item => ({
+    "@type": "Question",
+    "name": item.question,
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": item.answer
+    }
+  }))
+};
+---
+
+<Base
+  lang="ru"
+  title="Печать штрих-кодов и кодов 2D GS1 — этикетки с переменными данными | WIPP Белосток"
+  description="Печатаем штрих-коды EAN, QR, GS1-128 и Data Matrix, коды 2D GS1 (Sunrise 2027), а также этикетки с переменными данными и серийной нумерацией. Достаточно файла PDF с кодами."
+  schema={faqSchema}
+>
+
+  <PageHero
+    eyebrow="Маркировка продукции"
+    title="Печать штрих-кодов"
+    highlight="и этикеток с переменными данными"
+    subtitle="От кодов EAN до уникальных серийных номеров — печатаем любые коды на самоклеящихся этикетках. Достаточно файла PDF с кодами."
+  />
+
+  <CodeGenerator labels={genLabels} />
+
+  <!-- Code types -->
+  <section class="py-16 md:py-24 bg-navy-50/60">
+    <div class="max-w-6xl mx-auto px-4">
+      <div class="text-center mb-12">
+        <p class="eyebrow text-accent-600 mb-3">Виды кодов</p>
+        <h2 class="text-2xl md:text-3xl font-extrabold tracking-tight">Какие коды мы печатаем?</h2>
+      </div>
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {codeTypes.map(c => (
+          <div class:list={[
+            'relative bg-white rounded-2xl p-7 shadow-sm hover:shadow-lg transition-shadow',
+            c.featured ? 'border border-accent-500/40 ring-1 ring-accent-500/20' : 'border border-navy-100'
+          ]}>
+            {c.featured && <span class="absolute top-5 right-5 font-mono text-[10px] font-bold uppercase tracking-widest text-accent-600 bg-accent-500/10 rounded-full px-3 py-1">Специализация</span>}
+            <div class="w-12 h-12 rounded-xl bg-navy-900 text-white flex items-center justify-center mb-4">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v1m6 11h2m-6 0h-2v4m0-11v3m0 0h.01M12 12h4.01M16 20h4M4 12h4m12 0h.01M5 8h2a1 1 0 001-1V5a1 1 0 00-1-1H5a1 1 0 00-1 1v2a1 1 0 001 1zm12 0h2a1 1 0 001-1V5a1 1 0 00-1-1h-2a1 1 0 00-1 1v2a1 1 0 001 1zM5 20h2a1 1 0 001-1v-2a1 1 0 00-1-1H5a1 1 0 00-1 1v2a1 1 0 001 1z" /></svg>
+            </div>
+            <h3 class="text-lg font-extrabold tracking-tight mb-2">{c.title}</h3>
+            <p class="text-gray-600 text-sm leading-relaxed">{c.desc}</p>
+            {c.href && (
+              <a href={c.href} class="mt-4 inline-flex items-center gap-1.5 text-sm font-bold text-navy-700 hover:text-accent-600 transition-colors">
+                {c.linkLabel}
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
+              </a>
+            )}
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- How it works -->
+  <section class="py-16 md:py-24">
+    <div class="max-w-5xl mx-auto px-4">
+      <div class="text-center mb-12">
+        <p class="eyebrow text-accent-600 mb-3">Печать переменных данных</p>
+        <h2 class="text-2xl md:text-3xl font-extrabold tracking-tight">Как это работает?</h2>
+      </div>
+      <div class="grid md:grid-cols-3 gap-6">
+        {steps.map((s, i) => (
+          <div class="relative bg-white rounded-2xl border border-navy-100 p-7 shadow-sm">
+            <span class="font-mono text-sm font-bold text-accent-600 bg-accent-500/10 rounded-lg px-3 py-2 inline-block mb-4">{String(i + 1).padStart(2, '0')}</span>
+            <h3 class="text-lg font-extrabold tracking-tight mb-2">{s.title}</h3>
+            <p class="text-gray-600 text-sm leading-relaxed">{s.desc}</p>
+          </div>
+        ))}
+      </div>
+      <p class="mt-10 text-center text-gray-600 max-w-2xl mx-auto">
+        Печать переменных данных (Variable Data Printing) позволяет напечатать тысячи этикеток, каждая из которых отличается —
+        без смены форм и без доплат за «версии». Идеально для серийной нумерации, промокодов и маркировки производственных партий.
+      </p>
+    </div>
+  </section>
+
+  <!-- Sunrise 2027 -->
+  <section class="pb-16 md:pb-24 bg-white">
+    <div class="max-w-4xl mx-auto px-4">
+      <div class="relative bg-white rounded-3xl border border-accent-500/40 ring-1 ring-accent-500/20 p-8 md:p-12 shadow-sm overflow-hidden">
+        <svg class="absolute -right-8 -bottom-10 w-48 text-accent-500/[0.07] rotate-12" fill="currentColor" viewBox="0 0 14 14" aria-hidden="true"><rect x="0" y="0" width="14" height="14" fill="none"/><rect x="0" y="0" width="1" height="14"/><rect x="0" y="13" width="14" height="1"/><rect x="2" y="2" width="2" height="2"/><rect x="6" y="2" width="2" height="2"/><rect x="10" y="3" width="2" height="2"/><rect x="3" y="6" width="2" height="2"/><rect x="8" y="7" width="2" height="2"/><rect x="5" y="10" width="2" height="2"/><rect x="10" y="10" width="2" height="2"/></svg>
+        <div class="relative">
+          <p class="eyebrow text-accent-600 mb-4">GS1 Sunrise 2027</p>
+          <h2 class="text-2xl md:text-3xl font-extrabold tracking-tight mb-4">Коды 2D заменят традиционные коды EAN</h2>
+          <p class="text-gray-600 leading-relaxed mb-6 max-w-2xl">
+            К концу 2027 года кассы по всему миру должны считывать коды 2D —
+            <strong>GS1 Data Matrix</strong> и <strong>GS1 QR</strong>. В Польше письма о намерениях уже подписали
+            сети Biedronka, Żabka, Auchan и Carrefour. В переходный период продукты маркируются двойным способом:
+            код EAN и код 2D на одной этикетке.
+          </p>
+          <ul class="space-y-3 mb-8">
+            {[
+              'Печатаем этикетки с кодами GS1 Data Matrix и GS1 QR',
+              'Двойная маркировка: EAN-13 + код 2D на одной этикетке',
+              'Советуем формат и размещение кодов согласно рекомендациям GS1',
+            ].map(item => (
+              <li class="flex items-start gap-3 text-sm text-gray-700">
+                <span class="shrink-0 w-5 h-5 mt-0.5 rounded-md bg-navy-900 text-white flex items-center justify-center">
+                  <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7" /></svg>
+                </span>
+                {item}
+              </li>
+            ))}
+          </ul>
+          <a href="/ru/kontakt/" class="btn btn-primary">Подготовьте этикетки к кодам 2D</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="py-16 md:py-24 bg-navy-50/60">
+    <div class="max-w-4xl mx-auto px-4">
+      <div class="text-center mb-10">
+        <p class="eyebrow text-accent-600 mb-3">FAQ</p>
+        <h2 class="text-2xl md:text-3xl font-extrabold tracking-tight">Частые вопросы о печати кодов</h2>
+      </div>
+      <div class="space-y-4">
+        {faqItems.map(item => (
+          <details class="group bg-white rounded-2xl border border-navy-100 shadow-sm open:shadow-md transition-shadow">
+            <summary class="flex items-center justify-between gap-4 cursor-pointer list-none px-6 py-5 font-bold text-navy-950 hover:text-navy-700 transition-colors">
+              {item.question}
+              <span class="shrink-0 w-8 h-8 rounded-full border border-navy-200 flex items-center justify-center text-navy-500 transition-all duration-200 group-open:rotate-45 group-open:bg-navy-900 group-open:border-navy-900 group-open:text-white">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" /></svg>
+              </span>
+            </summary>
+            <div class="px-6 pb-6 text-gray-600 leading-relaxed whitespace-pre-line">
+              {item.answer}
+            </div>
+          </details>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <CtaBanner
+    title="Нужны этикетки с кодами?"
+    text="Отправьте файл с данными или опишите заказ — подготовим расчёт в течение 24-48 часов."
+    primaryHref="/ru/kontakt/"
+    primaryLabel="Заказать расчёт"
+    secondaryHref="tel:+48604286423"
+    secondaryLabel="Позвонить: 604 286 423"
+  />
+
+</Base>

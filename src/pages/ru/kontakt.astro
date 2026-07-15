@@ -1,5 +1,34 @@
 ---
 import Base from '../../layouts/Base.astro';
+import PageHero from '../../components/PageHero.astro';
+import DataMatrix from '../../components/DataMatrix.astro';
+import QuoteForm from '../../components/QuoteForm.astro';
+
+const quoteLabels = {
+  eyebrow: "Быстрый расчёт",
+  title: "Настройте запрос на расчёт",
+  intro: "Заполните форму — мы подготовим готовое сообщение в вашей почтовой программе. Без звонков. Отвечаем в течение 24-48 ч.",
+  service: "Услуга",
+  services: ["Коды Data Matrix", "Штрих-коды / переменные данные", "Наклейки и этикетки", "Цифровая печать (визитки, листовки...)", "Футболки с принтом", "Другое / нестандартный заказ"],
+  size: "Размеры этикетки / формата",
+  sizePlaceholder: "напр. 50 × 30 мм",
+  material: "Материал",
+  materialPlaceholder: "напр. бумага, плёнка — или «прошу совета»",
+  quantity: "Тираж",
+  quantityPlaceholder: "напр. 10 000 шт.",
+  deadline: "Срок выполнения",
+  deadlinePlaceholder: "напр. до 20 июля / экспресс 24-48 ч",
+  notes: "Дополнительная информация",
+  notesPlaceholder: "Опишите заказ — напр. предоставите ли файл с кодами, цвета, отделка...",
+  submit: "Подготовить письмо с запросом",
+  gmail: "Открыть в Gmail",
+  copy: "Скопировать текст",
+  copied: "Скопировано!",
+  hint: "Нажатие откроет вашу почтовую программу с готовым сообщением на wippdrukarnia@gmail.com — ничего не отправляется автоматически.\nНичего не открылось? Используйте «Открыть в Gmail» или скопируйте текст.",
+  subject: "Запрос на расчёт — форма с сайта",
+  intro2: "Здравствуйте, прошу рассчитать стоимость:",
+  attachNote: "P.S. Если у вас уже есть файл PDF с кодами или макетом — приложите его к этому сообщению перед отправкой.",
+};
 ---
 
 <Base
@@ -8,71 +37,81 @@ import Base from '../../layouts/Base.astro';
   description="Свяжитесь с типографией WIPP в Белостоке. Тел: 604 286 423. Адрес: ul. Kombatantów 7A, 15-110 Białystok. Пн-Пт 07:00-15:00."
 >
 
-  <!-- Hero -->
-  <section class="pt-24 pb-12 md:pt-32 md:pb-16 bg-gradient-to-br from-blue-800 to-blue-950 text-white">
-    <div class="max-w-4xl mx-auto px-4 text-center">
-      <h1 class="text-3xl md:text-5xl font-extrabold mb-4">Контакт</h1>
-      <p class="text-lg text-blue-100">Позвоните, напишите или посетите нас. Мы с удовольствием подготовим расчёт.</p>
-    </div>
-  </section>
+  <PageHero
+    eyebrow="Мы на связи"
+    title="Контакт"
+    subtitle="Позвоните, напишите или посетите нас. Мы с удовольствием подготовим расчёт."
+  />
 
-  <section class="py-16 md:py-24">
+  <section class="py-16 md:py-24 bg-navy-50/60">
     <div class="max-w-5xl mx-auto px-4">
 
+      <!-- Contact cards -->
       <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
 
-        <a href="tel:+48604286423" class="group bg-white rounded-xl shadow-md hover:shadow-lg transition-shadow p-6 text-center">
-          <div class="w-14 h-14 bg-blue-100 text-blue-700 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-blue-700 group-hover:text-white transition-colors">
+        <a href="tel:+48604286423" class="group bg-white rounded-2xl border border-navy-100 shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all duration-300 p-6 text-center">
+          <div class="w-14 h-14 bg-navy-50 text-navy-700 rounded-xl flex items-center justify-center mx-auto mb-4 group-hover:bg-navy-900 group-hover:text-white transition-colors">
             <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" /></svg>
           </div>
-          <h2 class="font-bold text-gray-800 mb-1">Телефон</h2>
-          <p class="text-blue-700 font-semibold text-lg">604 286 423</p>
+          <h2 class="font-extrabold tracking-tight text-navy-900 mb-1">Телефон</h2>
+          <p class="font-mono font-bold text-navy-700 group-hover:text-accent-600 transition-colors">604 286 423</p>
         </a>
 
-        <a href="mailto:wippdrukarnia@gmail.com" class="group bg-white rounded-xl shadow-md hover:shadow-lg transition-shadow p-6 text-center">
-          <div class="w-14 h-14 bg-blue-100 text-blue-700 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-blue-700 group-hover:text-white transition-colors">
+        <a href="mailto:wippdrukarnia@gmail.com" class="group bg-white rounded-2xl border border-navy-100 shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all duration-300 p-6 text-center">
+          <div class="w-14 h-14 bg-navy-50 text-navy-700 rounded-xl flex items-center justify-center mx-auto mb-4 group-hover:bg-navy-900 group-hover:text-white transition-colors">
             <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" /></svg>
           </div>
-          <h2 class="font-bold text-gray-800 mb-1">Эл. почта</h2>
-          <p class="text-blue-700 font-semibold text-sm">wippdrukarnia@gmail.com</p>
+          <h2 class="font-extrabold tracking-tight text-navy-900 mb-1">Эл. почта</h2>
+          <p class="font-mono text-xs font-bold text-navy-700 group-hover:text-accent-600 transition-colors break-all">wippdrukarnia@gmail.com</p>
         </a>
 
-        <div class="bg-white rounded-xl shadow-md p-6 text-center">
-          <div class="w-14 h-14 bg-blue-100 text-blue-700 rounded-full flex items-center justify-center mx-auto mb-4">
+        <div class="bg-white rounded-2xl border border-navy-100 shadow-sm p-6 text-center">
+          <div class="w-14 h-14 bg-navy-50 text-navy-700 rounded-xl flex items-center justify-center mx-auto mb-4">
             <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
           </div>
-          <h2 class="font-bold text-gray-800 mb-1">Адрес</h2>
-          <p class="text-gray-600 text-sm">ul. Kombatantów 7A<br />15-110 Białystok, Polska</p>
+          <h2 class="font-extrabold tracking-tight text-navy-900 mb-1">Адрес</h2>
+          <p class="text-gray-600 text-sm leading-relaxed">ul. Kombatantów 7A<br />15-110 Białystok, Polska</p>
         </div>
 
-        <div class="bg-white rounded-xl shadow-md p-6 text-center">
-          <div class="w-14 h-14 bg-blue-100 text-blue-700 rounded-full flex items-center justify-center mx-auto mb-4">
+        <div class="bg-white rounded-2xl border border-navy-100 shadow-sm p-6 text-center">
+          <div class="w-14 h-14 bg-navy-50 text-navy-700 rounded-xl flex items-center justify-center mx-auto mb-4">
             <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
           </div>
-          <h2 class="font-bold text-gray-800 mb-1">Часы работы</h2>
-          <p class="text-gray-600 text-sm">Пн-Пт: 07:00 - 15:00<br />Сб-Вс: закрыто</p>
+          <h2 class="font-extrabold tracking-tight text-navy-900 mb-1">Часы работы</h2>
+          <p class="text-gray-600 text-sm leading-relaxed font-mono">Пн-Пт: 07:00-15:00<br />Сб-Вс: закрыто</p>
         </div>
 
       </div>
 
+      <!-- Quote configurator -->
+      <QuoteForm labels={quoteLabels} />
+
       <!-- Email CTA -->
-      <div class="bg-blue-50 rounded-2xl p-8 md:p-12 text-center mb-16">
-        <h2 class="text-2xl md:text-3xl font-bold mb-4">Напишите нам</h2>
-        <p class="text-gray-600 mb-6 max-w-xl mx-auto">
-          Опишите ваш заказ — количество, формат, материал, сроки выполнения.
-          Мы ответим с расчётом как можно скорее.
-        </p>
-        <a href="mailto:wippdrukarnia@gmail.com?subject=Запрос%20на%20расчёт"
-          class="inline-flex items-center justify-center gap-2 bg-blue-700 text-white font-bold px-6 sm:px-8 py-3 rounded-lg hover:bg-blue-800 transition-colors text-base sm:text-lg w-full sm:w-auto">
-          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" /></svg>
-          wippdrukarnia@gmail.com
-        </a>
+      <div class="relative overflow-hidden bg-navy-950 rounded-3xl p-8 md:p-14 text-center text-white mb-16">
+        <div class="absolute inset-0 bg-grid-dark" aria-hidden="true"></div>
+        <div class="absolute -top-24 -right-24 w-80 h-80 bg-accent-500/15 rounded-full blur-3xl" aria-hidden="true"></div>
+        <DataMatrix seed={13} class="absolute -left-10 -bottom-12 w-48 text-white/[0.06] -rotate-12" />
+        <div class="relative">
+          <h2 class="text-2xl md:text-3xl font-extrabold tracking-tight mb-4">Предпочитаете написать напрямую?</h2>
+          <p class="text-navy-200 mb-8 max-w-xl mx-auto leading-relaxed">
+            Опишите ваш заказ — количество, формат, материал, сроки выполнения.
+            Мы ответим с расчётом как можно скорее.
+          </p>
+          <a href="mailto:wippdrukarnia@gmail.com?subject=Запрос%20на%20расчёт"
+            class="btn btn-light text-base sm:text-lg w-full sm:w-auto">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" /></svg>
+            wippdrukarnia@gmail.com
+          </a>
+        </div>
       </div>
 
       <!-- Map -->
       <div>
-        <h2 class="text-2xl font-bold mb-6 text-center">Как нас найти</h2>
-        <div class="rounded-xl overflow-hidden shadow-md">
+        <div class="text-center mb-8">
+          <p class="eyebrow text-accent-600 mb-3">Локация</p>
+          <h2 class="text-2xl md:text-3xl font-extrabold tracking-tight">Как нас найти</h2>
+        </div>
+        <div class="rounded-2xl overflow-hidden border border-navy-100 shadow-md">
           <iframe
             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2005.6354698659102!2d23.159546482128956!3d53.150002268782195!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x471ffc3f8d5fdacd%3A0x1b11bab1ec2e71c2!2sWipp%20Piotr%20Prokopiuk!5e0!3m2!1spl!2spl!4v1748554345172!5m2!1spl!2spl"
             width="100%"
@@ -84,11 +123,12 @@ import Base from '../../layouts/Base.astro';
             title="Типография WIPP — Kombatantów 7A, Białystok">
           </iframe>
         </div>
-        <div class="mt-4 text-center">
+        <div class="mt-6 text-center">
           <a href="https://www.google.com/maps/dir/?api=1&destination=Kombatantów+7A,+15-110+Białystok"
             target="_blank" rel="noopener"
-            class="text-blue-700 font-semibold hover:underline">
-            Проложить маршрут &rarr;
+            class="inline-flex items-center gap-1.5 text-navy-700 font-bold hover:text-accent-600 transition-colors">
+            Проложить маршрут
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
           </a>
         </div>
       </div>

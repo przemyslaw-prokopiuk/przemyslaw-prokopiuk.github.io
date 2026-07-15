@@ -1,4 +1,6 @@
 ---
+import DataMatrix from './DataMatrix.astro';
+
 interface Props {
   lang?: string;
 }
@@ -14,10 +16,12 @@ const t: Record<string, Record<string, string>> = {
     contact: 'Kontakt',
     home: 'Strona Główna',
     dataMatrix: 'Data Matrix',
+    barcodes: 'Kody kreskowe',
     services: 'Usługi',
     portfolio: 'Realizacje',
     contactPage: 'Kontakt',
     hours: 'Pn-Pt: 07:00 - 15:00',
+    rights: 'Wszelkie prawa zastrzeżone.',
   },
   en: {
     desc: 'Professional digital printing house in Białystok. We specialize in printing stickers, self-adhesive labels, and Data Matrix codes.',
@@ -25,10 +29,12 @@ const t: Record<string, Record<string, string>> = {
     contact: 'Contact',
     home: 'Home',
     dataMatrix: 'Data Matrix',
+    barcodes: 'Barcodes',
     services: 'Services',
     portfolio: 'Portfolio',
     contactPage: 'Contact',
     hours: 'Mon-Fri: 07:00 - 15:00',
+    rights: 'All rights reserved.',
   },
   ru: {
     desc: 'Профессиональная цифровая типография в Белостоке. Специализируемся на печати наклеек, самоклеящихся этикеток и кодов Data Matrix.',
@@ -36,31 +42,40 @@ const t: Record<string, Record<string, string>> = {
     contact: 'Контакт',
     home: 'Главная',
     dataMatrix: 'Data Matrix',
+    barcodes: 'Штрих-коды',
     services: 'Услуги',
     portfolio: 'Портфолио',
     contactPage: 'Контакт',
     hours: 'Пн-Пт: 07:00 - 15:00',
+    rights: 'Все права защищены.',
   },
 };
 
 const l = t[lang] || t.pl;
 ---
 
-<footer class="bg-gray-900 text-gray-300">
-  <div class="max-w-6xl mx-auto px-4 py-12">
-    <div class="grid md:grid-cols-3 gap-8">
+<footer class="relative overflow-hidden bg-navy-950 text-navy-200">
+  <div class="h-px bg-gradient-to-r from-transparent via-accent-500/60 to-transparent" aria-hidden="true"></div>
+  <DataMatrix seed={23} class="absolute -right-14 -top-14 w-72 text-white/[0.03] rotate-12" />
+
+  <div class="relative max-w-6xl mx-auto px-4 py-14">
+    <div class="grid gap-10 md:grid-cols-[1.4fr_1fr_1.2fr]">
       <!-- Company -->
       <div>
-        <h3 class="text-white text-lg font-bold mb-3">Drukarnia WIPP</h3>
-        <p class="text-sm leading-relaxed">{l.desc}</p>
+        <div class="flex items-center gap-3 mb-4">
+          <img src="/logo.png" alt="" class="h-9 w-9 rounded-lg" width="36" height="36" loading="lazy" />
+          <span class="text-lg font-extrabold tracking-tight text-white">WIPP <span class="font-medium text-navy-400">Drukarnia</span></span>
+        </div>
+        <p class="text-sm leading-relaxed max-w-sm">{l.desc}</p>
       </div>
 
       <!-- Quick links -->
       <div>
-        <h3 class="text-white text-lg font-bold mb-3">{l.nav}</h3>
-        <ul class="space-y-2 text-sm">
+        <h3 class="eyebrow text-accent-400 mb-4">{l.nav}</h3>
+        <ul class="space-y-2.5 text-sm font-medium">
           <li><a href={`${prefix}/`} class="hover:text-white transition-colors">{l.home}</a></li>
           <li><a href={`${prefix}/data-matrix/`} class="hover:text-white transition-colors">{l.dataMatrix}</a></li>
+          <li><a href={`${prefix}/kody-kreskowe/`} class="hover:text-white transition-colors">{l.barcodes}</a></li>
           <li><a href={`${prefix}/uslugi/`} class="hover:text-white transition-colors">{l.services}</a></li>
           <li><a href={`${prefix}/realizacje/`} class="hover:text-white transition-colors">{l.portfolio}</a></li>
           <li><a href={`${prefix}/kontakt/`} class="hover:text-white transition-colors">{l.contactPage}</a></li>
@@ -69,22 +84,23 @@ const l = t[lang] || t.pl;
 
       <!-- Contact -->
       <div>
-        <h3 class="text-white text-lg font-bold mb-3">{l.contact}</h3>
-        <address class="not-italic text-sm space-y-2">
+        <h3 class="eyebrow text-accent-400 mb-4">{l.contact}</h3>
+        <address class="not-italic text-sm space-y-2.5">
           <p>ul. Kombatantów 7A<br />15-110 Białystok</p>
           <p>
-            <a href="tel:+48604286423" class="hover:text-white transition-colors">604 286 423</a>
+            <a href="tel:+48604286423" class="font-mono font-bold text-white hover:text-accent-300 transition-colors">604 286 423</a>
           </p>
           <p>
-            <a href="mailto:wippdrukarnia@gmail.com" class="hover:text-white transition-colors">wippdrukarnia@gmail.com</a>
+            <a href="mailto:wippdrukarnia@gmail.com" class="font-mono hover:text-white transition-colors">wippdrukarnia@gmail.com</a>
           </p>
-          <p>{l.hours}</p>
+          <p class="font-mono text-navy-300">{l.hours}</p>
         </address>
       </div>
     </div>
 
-    <div class="mt-10 pt-6 border-t border-gray-700 text-center text-sm text-gray-500">
-      &copy; {year} Wipp Piotr Prokopiuk — Drukarnia Białystok. Wszelkie prawa zastrzeżone.
+    <div class="mt-12 pt-6 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-2 text-xs text-navy-400">
+      <p>&copy; {year} Wipp Piotr Prokopiuk — Drukarnia Białystok. {l.rights}</p>
+      <p class="font-mono">Białystok · PL</p>
     </div>
   </div>
 </footer>

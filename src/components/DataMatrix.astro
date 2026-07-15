@@ -1,0 +1,49 @@
+---
+// Data Matrix code, rendered at build time.
+// - With `text`: a real, scannable ECC 200 code (via bwip-js).
+// - Without: decorative artwork — solid L-shaped finder pattern (left + bottom),
+//   alternating timing pattern (top + right), pseudo-random data cells,
+//   deterministic per seed so builds are stable. Not scannable by design.
+import bwipjs from 'bwip-js';
+
+interface Props {
+  text?: string;
+  seed?: number;
+  class?: string;
+}
+
+const { text, seed = 7, class: className = '' } = Astro.props;
+
+let realSvg = '';
+if (text) {
+  realSvg = bwipjs
+    .toSVG({ bcid: 'datamatrix', text })
+    .replace('<svg ', `<svg class="${className}" fill="currentColor" shape-rendering="crispEdges" aria-hidden="true" `);
+}
+
+const SIZE = 14;
+let s = seed * 2654435761 % 2147483647 || 1;
+const rand = () => {
+  s = (s * 16807) % 2147483647;
+  return s / 2147483647;
+};
+
+const cells: { x: number; y: number }[] = [];
+if (!text) {
+  for (let y = 0; y < SIZE; y++) {
+    for (let x = 0; x < SIZE; x++) {
+      const finder = x === 0 || y === SIZE - 1;
+      const timing = (y === 0 && x % 2 === 0) || (x === SIZE - 1 && y % 2 === 1);
+      if (finder || timing || rand() > 0.52) cells.push({ x, y });
+    }
+  }
+}
+---
+
+{text ? (
+  <Fragment set:html={realSvg} />
+) : (
+  <svg viewBox={`0 0 ${SIZE} ${SIZE}`} class={className} aria-hidden="true">
+    {cells.map(c => <rect x={c.x} y={c.y} width="0.92" height="0.92" fill="currentColor" />)}
+  </svg>
+)}
